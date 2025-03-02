@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tiskol - Cours Particuliers</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="rectangle">
+        <div class="left-icon-container">
+            <div class="icon plus">×</div>
+            <div class="icon plus">+</div>
+            <div class="icon minus">−</div>
+        </div>
+        <div class="right-icon-container">
+            <div class="image-icon">
+                <img src="C:/Users/Teiva/Documents/TiSkol/logo_black.png" alt="Icone image">
+            </div>
+        </div>
+        <div class="title">TiSkol</div>
+        <div class="subtitle">l'école à la maison</div>
+    </div>
+
+    <div class="start-text">&laquo; cliquez pour commencer &raquo;</div>
+
+    <!-- Premier rectangle blanc -->
+    <div class="inscrire-rectangle">
+        <p>S'inscrire</p>
+    </div>
+
+    <!-- Premier rectangle blanc -->
+    <div class="connecter-rectangle">
+        <p>Se connecter</p>
+    </div>
+
+    <!-- Premier rectangle blanc -->
+    <div class="souhaite-rectangle">
+        <p>je souhaite :</p>
+    </div>
+
+    <!-- Deuxième rectangle blanc -->
+    <div class="donner-rectangle">
+        <p>Donner des cours</p>
+    </div>
+
+    <!-- troisième rectangle blanc -->
+    <div class="prendre-rectangle">
+        <p>Prendre des cours</p>
+    </div>
+
+    <!-- troisième rectangle blanc -->
+    <div class="retourinscription-rectangle">
+        <p>Retour</p>
+    </div>
+
+    <!-- troisième rectangle blanc -->
+    <div class="mail-rectangle">
+        <p>Entrez votre email :</p>
+        <input type="text" placeholder="Email" />
+    </div>
+
+    <!-- troisième rectangle blanc -->
+    <div class="suivant-rectangle">
+        <p>Suivant</p>
+    </div>
+
+    <!-- troisième rectangle blanc -->
+    <div class="mdp-rectangle">
+        <p>Entrez votre mot de passe :</p>
+        <input type="text" placeholder="Mot de passe" />
+    </div>
+
+    <!-- troisième rectangle blanc -->
+    <div class="retourmail-rectangle">
+        <p>Retour</p>
+    </div>
+
+    <!-- troisième rectangle blanc -->
+    <div class="retourconnection-rectangle">
+        <p>Retour</p>
+    </div>
+
+    <!-- troisième rectangle blanc -->
+    <div class="demat-rectangle">
+        <p>Demat !</p>
+    </div>
+</body>
+<script>
+    // Sélectionner les éléments nécessaires
+    const startText = document.querySelector('.start-text');
+    const rectangle = document.querySelector('.rectangle');
+    const inscrireRectangles = document.querySelectorAll('.inscrire-rectangle');
+    const connecterRectangles = document.querySelectorAll('.connecter-rectangle');
+    const souhaiteRectangles = document.querySelectorAll('.souhaite-rectangle');
+    const donnerRectangles = document.querySelectorAll('.donner-rectangle');
+    const prendreRectangles = document.querySelectorAll('.prendre-rectangle');
+    const retouriRectangles = document.querySelectorAll('.retourinscription-rectangle');
+    const retourcRectangles = document.querySelectorAll('.retourconnection-rectangle');
+    const mailRectangles = document.querySelectorAll('.mail-rectangle');
+    const retourmailRectangles = document.querySelectorAll('.retourmail-rectangle');
+    const mdpRectangles = document.querySelectorAll('.mdp-rectangle');
+    const suivantRectangles = document.querySelectorAll('.suivant-rectangle');
+    const dematRectangles = document.querySelectorAll('.demat-rectangle');
+
+    // Variable pour vérifier si l'événement a déjà eu lieu
+    let isFirstClick = true;
+
+    // Attendre 2 secondes pour afficher le texte
+    setTimeout(() => {
+        startText.classList.add('visible'); // Ajoute la classe pour permettre le clic
+        document.body.style.pointerEvents = 'auto'; // Permet les clics sur la page
+    }, 2000); // 2 secondes après le début de l'animation du texte
+
+    // Ajouter un événement pour détecter un clic sur la page
+    document.body.addEventListener('click', function() {
+        if (isFirstClick) { // Vérifie si c'est le premier clic
+            // Masquer le texte "cliquer pour commencer"
+            startText.style.display = 'none';
+
+            // Ajouter la classe "moved-up" pour animer le déplacement du rectangle
+            rectangle.classList.add('moved-up');
+
+            setTimeout(() => {
+                // Afficher les rectangles "Inscrire" et "Connecter"
+                inscrireRectangles.forEach(rect => rect.classList.add('visible'));
+                connecterRectangles.forEach(rect => rect.classList.add('visible'));
+            }, 1000); // 1 seconde après le début de l'animation du rectangle
+
+            // Une fois le clic effectué, on marque que l'événement a eu lieu
+            isFirstClick = false;
+        }
+    });
+
+    // Ajouter un événement de clic sur le rectangle "S'inscrire"
+    inscrireRectangles.forEach(rect => {
+        rect.addEventListener('click', function() {
+            // Masquer les rectangles "S'inscrire" et "Se connecter" dès qu'ils sont cliqués
+            inscrireRectangles.forEach(r => r.classList.remove('visible'));
+            connecterRectangles.forEach(r => r.classList.remove('visible'));  // Masque définitivement "Se connecter"
+
+            // Ajouter un délai avant d'afficher les autres rectangles
+            setTimeout(() => {
+                // Afficher les autres rectangles
+                souhaiteRectangles.forEach(r => r.classList.add('visible'));
+                donnerRectangles.forEach(r => r.classList.add('visible'));
+                prendreRectangles.forEach(r => r.classList.add('visible'));
+                retouriRectangles.forEach(r => r.classList.add('visible'));
+            }, 1000); // 1 seconde après le clic
+        });
+    });
+
+    // Ajouter un événement de clic sur le rectangle "S'inscrire"
+    connecterRectangles.forEach(rect => {
+        rect.addEventListener('click', function() {
+            // Masquer les rectangles "S'inscrire" et "Se connecter" dès qu'ils sont cliqués
+            inscrireRectangles.forEach(r => r.classList.remove('visible'));
+            connecterRectangles.forEach(r => r.classList.remove('visible'));  // Masque définitivement "Se connecter"
+
+            // Ajouter un délai avant d'afficher les autres rectangles
+            setTimeout(() => {
+                // Afficher les autres rectangles
+                mailRectangles.forEach(r => r.classList.add('visible'));
+                suivantRectangles.forEach(r => r.classList.add('visible'));
+                retourcRectangles.forEach(r => r.classList.add('visible'));
+            }, 1000); // 1 seconde après le clic
+        });
+    });
+
+    // Ajouter un événement de clic sur le rectangle "S'inscrire"
+    retourcRectangles.forEach(rect => {
+        rect.addEventListener('click', function() {
+            // Masquer les rectangles "S'inscrire" et "Se connecter" dès qu'ils sont cliqués
+            mailRectangles.forEach(r => r.classList.remove('visible'));
+            suivantRectangles.forEach(r => r.classList.remove('visible'));
+            retourcRectangles.forEach(r => r.classList.remove('visible'));
+
+            // Ajouter un délai avant d'afficher les autres rectangles
+            setTimeout(() => {
+                // Afficher les autres rectangles
+                inscrireRectangles.forEach(r => r.classList.add('visible'));
+                connecterRectangles.forEach(r => r.classList.add('visible'));
+            }, 1000); // 1 seconde après le clic
+        });
+    });
+
+    // Ajouter un événement de clic sur le rectangle "S'inscrire"
+    retouriRectangles.forEach(rect => {
+        rect.addEventListener('click', function() {
+            // Masquer les rectangles "S'inscrire" et "Se connecter" dès qu'ils sont cliqués
+            souhaiteRectangles.forEach(r => r.classList.remove('visible'));
+            donnerRectangles.forEach(r => r.classList.remove('visible'));  
+            prendreRectangles.forEach(r => r.classList.remove('visible'));
+            retouriRectangles.forEach(r => r.classList.remove('visible'));  
+
+            // Ajouter un délai avant d'afficher les autres rectangles
+            setTimeout(() => {
+                // Afficher les autres rectangles
+                inscrireRectangles.forEach(r => r.classList.add('visible'));
+                connecterRectangles.forEach(r => r.classList.add('visible'));
+            }, 1000); // 1 seconde après le clic
+        });
+    });
+
+    // Ajouter un événement de clic sur le rectangle "S'inscrire"
+    suivantRectangles.forEach(rect => {
+        rect.addEventListener('click', function() {
+            // Masquer les rectangles "S'inscrire" et "Se connecter" dès qu'ils sont cliqués
+            mailRectangles.forEach(r => r.classList.remove('visible'));
+            retourcRectangles.forEach(r => r.classList.remove('visible'));
+            suivantRectangles.forEach(r => r.classList.remove('visible'));
+            // Ajouter un délai avant d'afficher les autres rectangles
+            setTimeout(() => {
+                // Afficher les autres rectangles
+                mdpRectangles.forEach(r => r.classList.add('visible'));
+                retourmailRectangles.forEach(r => r.classList.add('visible'));
+                dematRectangles.forEach(r => r.classList.add('visible'));
+            }, 500); // 1 seconde après le clic
+        });
+    });
+
+    // Ajouter un événement de clic sur le rectangle "S'inscrire"
+    retourmailRectangles.forEach(rect => {
+        rect.addEventListener('click', function() {
+            // Masquer les rectangles "S'inscrire" et "Se connecter" dès qu'ils sont cliqués
+            mdpRectangles.forEach(r => r.classList.remove('visible'));
+            retourmailRectangles.forEach(r => r.classList.remove('visible'));
+            suivantRectangles.forEach(r => r.classList.remove('visible'));
+            // Ajouter un délai avant d'afficher les autres rectangles
+            setTimeout(() => {
+                // Afficher les autres rectangles
+                mailRectangles.forEach(r => r.classList.add('visible'));
+                suivantRectangles.forEach(r => r.classList.add('visible'));
+                retourcRectangles.forEach(r => r.classList.add('visible'));
+            }, 500); // 1 seconde après le clic
+        });
+    });
+
+
+
+    // Fonction pour changer la couleur du fond
+    function changerFondCouleur(couleur) {
+        document.body.style.backgroundColor = couleur;
+    }
+
+    // Ajouter des événements de survol pour les rectangles "donner" et "prendre"
+    donnerRectangles.forEach(rect => {
+        rect.addEventListener('mouseover', function() {
+            changerFondCouleur('#f5be49'); // Changez cette couleur pour ce que vous préférez
+        });
+        rect.addEventListener('mouseout', function() {
+            changerFondCouleur('#d9d9d9'); // Réinitialise la couleur de fond par défaut
+        });
+    });
+
+    // Ajouter des événements de survol pour les rectangles "inscrire" et "connecter"
+    inscrireRectangles.forEach(rect => {
+        rect.addEventListener('mouseover', function() {
+            changerFondCouleur('#f5be49'); // Changez cette couleur pour ce que vous préférez
+        });
+        rect.addEventListener('mouseout', function() {
+            changerFondCouleur('#d9d9d9'); // Réinitialise la couleur de fond par défaut
+        });
+    });
+
+    prendreRectangles.forEach(rect => {
+        rect.addEventListener('mouseover', function() {
+            changerFondCouleur('#5271ff'); // Changez cette couleur pour ce que vous préférez
+        });
+        rect.addEventListener('mouseout', function() {
+            changerFondCouleur('#d9d9d9'); // Réinitialise la couleur de fond par défaut
+        });
+    });
+
+    connecterRectangles.forEach(rect => {
+        rect.addEventListener('mouseover', function() {
+            changerFondCouleur('#5271ff'); // Changez cette couleur pour ce que vous préférez
+        });
+        rect.addEventListener('mouseout', function() {
+            changerFondCouleur('#d9d9d9'); // Réinitialise la couleur de fond par défaut
+        });
+    });
+</script>
+</html>
