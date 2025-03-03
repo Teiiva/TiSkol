@@ -42,7 +42,7 @@
         transform: translateY(0);
     }
     100% {
-        transform: translateY(-200px);
+        transform: translateY(-180px);
     }
 }
 
@@ -50,7 +50,6 @@
 .rectangle.moved-up {
     animation: moveUpRectangle 0.6s ease-in-out forwards; /* Animation fluide */
 }
-
 
 /* Chargement de la police Open Sauce depuis le dossier local */
 @font-face {
@@ -142,14 +141,7 @@ body {
     gap: 10px; /* Espacement entre les icônes */
 }
 
-/* Icônes positionnées à gauche */
-.right-icon-container {
-    position: absolute;
-    top: -4px; /* Placer les icônes plus haut */
-    left: 400px; /* Placer les icônes à gauche */
-    display: flex;
-    gap: 10px; /* Espacement entre les icônes */
-}
+
 
 /* Icônes avec animation de rebond */
 .icon {
@@ -167,19 +159,22 @@ body {
     user-select: none; /* Empêche la sélection de texte */
 }
 
-/* Style pour l'icône avec une image */
-.right-icon-container .image-icon {
-    width: 50px; /* Taille de l'image */
-    height: 50px; /* Taille de l'image */
-    background-color: transparent; /* Retirer la couleur de fond */
-    border-radius: 50%; /* Garder les bords arrondis */
+.image-au-dessus {
+    width: 150px; /* Largeur fixe */
+    height: 150px; /* Hauteur fixe */
+    object-fit: cover; /* Assure que l'image remplit l'espace défini sans déformation */
+    margin-top: -200px;
+    margin-bottom: -5px;
 }
 
-.right-icon-container img {
-    width: 100%; /* Prendre toute la taille de l'élément */
-    height: 100%; /* Prendre toute la taille de l'élément */
-    object-fit: cover; /* Assurer que l'image remplit le cercle sans déformation */
-}
+
+/* Classe ajoutée pour rendre le rectangle visible */
+.image-au-dessus.invisible {
+    opacity: 0; /* Rendre visible */
+    visibility: hidden; /* Afficher le rectangle */
+    transition: opacity 0.6s ease; /* Animation de transition pour la visibilité */
+    }
+
 
 /* Animation du titre (TiSkol) */
 .title {
@@ -197,7 +192,7 @@ body {
     font-family: 'Libre Baskerville', serif; /* Applique la police Libre Baskerville */
     font-size: 20px; /* Taille petite pour "l'école à la maison" */
     font-style: normal; /* Pas d'italique */
-    color: #333; /* Couleur légèrement plus sombre pour un contraste plus doux */
+    color: black; /* Couleur légèrement plus sombre pour un contraste plus doux */
     user-select: none; /* Empêche la sélection de texte */
 }
 
@@ -206,7 +201,7 @@ body {
     font-weight: light;
     font-family: 'Open Sauce One', serif;
     font-size: 13px;
-    color: #333;
+    color: black;
     text-align: center; /* Centre le texte horizontalement */
     opacity: 0;
     transform: translateY(20px);
@@ -222,8 +217,8 @@ body {
     pointer-events: all; /* Permet de cliquer uniquement quand le texte est visible */
 }
 
-.inscrire-rectangle {
-    width: 200px; /* Largeur du rectangle blanc */
+.informations-rectangle {
+    width: 450px; /* Largeur du rectangle blanc */
     height: 50px; /* Hauteur du rectangle blanc */
     background-color: #f4f4f4;
     border: 1px solid black;
@@ -244,35 +239,36 @@ body {
 }
 
 /* Classe ajoutée pour rendre le rectangle visible */
-.inscrire-rectangle.visible {
+.informations-rectangle.visible {
     opacity: 1; /* Rendre visible */
     visibility: visible; /* Afficher le rectangle */
     transition: opacity 0.6s ease; /* Animation de transition pour la visibilité */
 }
 
-.inscrire-rectangle p {
+.informations-rectangle p {
     margin: 0; /* Éviter l'espace par défaut des balises <p> */
     font-size: 16px; /* Ajuste la taille de la police */
     font-family: 'Open Sauce One', sans-serif; /* Utiliser la même police que le reste */
-    color: #333; /* Couleur du texte */
+    color: black; /* Couleur du texte */
 }
 
 /* Effet de survol pour le rectangle "donner" */
-.inscrire-rectangle:hover {
+.informations-rectangle:hover {
     background-color: #f5be49; /* Changer la couleur de fond sur le survol */
     box-shadow: 8px 8px 0px 0px black;
+    font-weight: bold; /* Appliquer le gras sur le texte lors du survol */
     cursor: pointer; /* Changer le curseur pour indiquer qu'il est cliquable */
 }
 
-.connecter-rectangle {
-    width: 200px; /* Largeur du rectangle blanc */
+.commencer-rectangle {
+    width: 450px; /* Largeur du rectangle blanc */
     height: 50px; /* Hauteur du rectangle blanc */
     background-color: #f4f4f4;
     border: 1px solid black;
     border-radius: 4px; /* Coins arrondis */
     position: fixed; /* Position fixe pour qu'il soit au centre de la page */
     box-shadow: 8px 8px 0px 0px black;
-    top: 58%; /* Centrer verticalement */
+    top: calc(50% + 80px); /* Correction de la position verticale */
     left: 50%; /* Centrer horizontalement */
     transform: translate(-50%, -50%); /* Centrer exactement au milieu */
     opacity: 0; /* Initialement invisible */
@@ -286,23 +282,24 @@ body {
 }
 
 /* Classe ajoutée pour rendre le rectangle visible */
-.connecter-rectangle.visible {
+.commencer-rectangle.visible {
     opacity: 1; /* Rendre visible */
     visibility: visible; /* Afficher le rectangle */
     transition: opacity 0.6s ease; /* Animation de transition pour la visibilité */
 }
 
-.connecter-rectangle p {
+.commencer-rectangle p {
     margin: 0; /* Éviter l'espace par défaut des balises <p> */
     font-size: 16px; /* Ajuste la taille de la police */
     font-family: 'Open Sauce One', sans-serif; /* Utiliser la même police que le reste */
-    color: #333; /* Couleur du texte */
+    color: black; /* Couleur du texte */
 }
 
 /* Effet de survol pour le rectangle "prendre" */
-.connecter-rectangle:hover {
+.commencer-rectangle:hover {
     background-color: #5271ff; /* Changer la couleur de fond sur le survol */
     box-shadow: 8px 8px 0px 0px black;
+    font-weight: bold; /* Appliquer le gras sur le texte lors du survol */
     cursor: pointer; /* Changer le curseur pour indiquer qu'il est cliquable */
 }
 
@@ -338,7 +335,7 @@ body {
     margin: 0; /* Éviter l'espace par défaut des balises <p> */
     font-size: 16px; /* Ajuste la taille de la police */
     font-family: 'Open Sauce One', sans-serif; /* Utiliser la même police que le reste */
-    color: #333; /* Couleur du texte */
+    color: black; /* Couleur du texte */
 }
 
 /* Rectangle blanc en dessous */
@@ -351,8 +348,8 @@ body {
     position: fixed; /* Position fixe pour qu'il soit au centre de la page */
     box-shadow: 8px 8px 0px 0px black;
     top: 58%; /* Centrer verticalement */
-    left: 35%; /* Centrer horizontalement */
-    transform: translate(-50%, -50%); /* Centrer exactement au milieu */
+    left: calc(50%-200px); /* Centrer horizontalement */
+    transform: translate(-60%, -50%); /* Centrer exactement au milieu */
     opacity: 0; /* Initialement invisible */
     visibility: hidden; /* Masquer au début */
     transition: opacity 0.6s ease, visibility 0s 0.6s; /* Animation de transition pour l'apparition */
@@ -373,6 +370,7 @@ body {
 .donner-rectangle:hover {
     background-color: #f5be49; /* Changer la couleur de fond sur le survol */
     box-shadow: 8px 8px 0px 0px black;
+    font-weight: bold; /* Appliquer le gras sur le texte lors du survol */
     cursor: pointer; /* Changer le curseur pour indiquer qu'il est cliquable */
 }
 
@@ -393,8 +391,8 @@ body {
     position: fixed; /* Position fixe pour qu'il soit au centre de la page */
     box-shadow: 8px 8px 0px 0px black;
     top: 58%; /* Centrer verticalement */
-    left: 65%; /* Centrer horizontalement */
-    transform: translate(-50%, -50%); /* Centrer exactement au milieu */
+    left: calc(50%+200px); /* Centrer horizontalement */
+    transform: translate(+60%, -50%); /* Centrer exactement au milieu */
     opacity: 0; /* Initialement invisible */
     visibility: hidden; /* Masquer au début */
     transition: opacity 0.6s ease, visibility 0s 0.6s; /* Animation de transition pour l'apparition */
@@ -425,7 +423,7 @@ body {
     transition: opacity 0.6s ease; /* Animation de transition pour la visibilité */
 }
 
-.retourinscription-rectangle {
+.retour-commencer-rectangle {
     width: 200px; /* Largeur du rectangle blanc */
     height: 50px; /* Hauteur du rectangle blanc */
     background-color: #f4f4f4;
@@ -447,75 +445,35 @@ body {
 }
 
 /* Classe ajoutée pour rendre le rectangle visible */
-.retourinscription-rectangle.visible {
+.retour-commencer-rectangle.visible {
     opacity: 1; /* Rendre visible */
     visibility: visible; /* Afficher le rectangle */
     transition: opacity 0.6s ease; /* Animation de transition pour la visibilité */
 }
 
 /* Effet de survol pour le rectangle "prendre" */
-.retourinscription-rectangle:hover {
+.retour-commencer-rectangle:hover {
     background-color: #a5a5a5; /* Changer la couleur de fond sur le survol */
     box-shadow: 8px 8px 0px 0px black;
+    font-weight: bold; /* Appliquer le gras sur le texte lors du survol */
     cursor: pointer; /* Changer le curseur pour indiquer qu'il est cliquable */
 }
 
-.retourinscription-rectangle p {
+.retour-commencer-rectangle p {
     margin: 0; /* Éviter l'espace par défaut des balises <p> */
     font-size: 16px; /* Ajuste la taille de la police */
     font-family: 'Open Sauce One', sans-serif; /* Utiliser la même police que le reste */
-    color: #333; /* Couleur du texte */
+    color: black; /* Couleur du texte */
 }
 
-.retourconnection-rectangle {
-    width: 100px; /* Largeur du rectangle blanc */
-    height: 50px; /* Hauteur du rectangle blanc */
+
+.page-info-1-rectangle {
+    width: 900px; /* Largeur doublée */
+    height: 700px; /* Hauteur du rectangle */
     background-color: #f4f4f4;
     border: 1px solid black;
     border-radius: 4px; /* Coins arrondis */
-    position: fixed; /* Position fixe pour qu'il soit au centre de la page */
-    box-shadow: 8px 8px 0px 0px black;
-    top: 60%; /* Centrer verticalement */
-    left: 44%; /* Centrer horizontalement */
-    transform: translate(-50%, -50%); /* Centrer exactement au milieu */
-    opacity: 0; /* Initialement invisible */
-    visibility: hidden; /* Masquer au début */
-    transition: opacity 0.6s ease, visibility 0s 0.6s; /* Animation de transition pour l'apparition */
-    display: flex;
-    justify-content: center; /* Centre le contenu horizontalement */
-    align-items: center; /* Centre le contenu verticalement */
-    text-align: center; /* Centre le texte */
-    user-select: none; /* Empêche la sélection de texte */
-}
-
-/* Classe ajoutée pour rendre le rectangle visible */
-.retourconnection-rectangle.visible {
-    opacity: 1; /* Rendre visible */
-    visibility: visible; /* Afficher le rectangle */
-    transition: opacity 0.6s ease; /* Animation de transition pour la visibilité */
-}
-
-/* Effet de survol pour le rectangle "prendre" */
-.retourconnection-rectangle:hover {
-    background-color: #a5a5a5; /* Changer la couleur de fond sur le survol */
-    box-shadow: 8px 8px 0px 0px black;
-    cursor: pointer; /* Changer le curseur pour indiquer qu'il est cliquable */
-}
-
-.retourconnection-rectangle p {
-    margin: 0; /* Éviter l'espace par défaut des balises <p> */
-    font-size: 16px; /* Ajuste la taille de la police */
-    font-family: 'Open Sauce One', sans-serif; /* Utiliser la même police que le reste */
-    color: #333; /* Couleur du texte */
-}
-
-.mail-rectangle {
-    width: 300px; /* Largeur du rectangle blanc */
-    height: 100px; /* Hauteur ajustée pour inclure le champ de saisie */
-    background-color: #f4f4f4;
-    border: 1px solid black;
-    border-radius: 4px; /* Coins arrondis */
-    position: fixed; /* Position fixe pour qu'il soit au centre de la page */
+    position: fixed; /* Nécessaire pour le positionnement absolu du trait */
     box-shadow: 8px 8px 0px 0px black;
     top: 50%; /* Centrer verticalement */
     left: 50%; /* Centrer horizontalement */
@@ -524,43 +482,166 @@ body {
     visibility: hidden; /* Masquer au début */
     transition: opacity 0.6s ease, visibility 0s 0.6s; /* Animation de transition pour l'apparition */
     display: flex;
-    flex-direction: column; /* Alignement en colonne pour le texte et l'input */
-    justify-content: center; /* Centre le contenu verticalement */
-    align-items: center; /* Centre le contenu horizontalement */
-    text-align: center; /* Centre le texte */
+    flex-direction: row; /* Organise les éléments horizontalement */
     user-select: none; /* Empêche la sélection de texte */
+    font-family: 'Open Sauce One', sans-serif; /* Définir la police de caractères (à ajuster selon ta préférence) */
+    font-size: 18px; /* Définir la taille du texte */
+    color: black; /* Couleur du texte */
+    line-height: 1.6; /* Espace entre les lignes pour une meilleure lisibilité */
 }
 
-.mail-rectangle.visible {
+/* Conteneur du texte */
+.text-container {
+    flex: 1; /* Utiliser la moitié gauche du rectangle */
+    padding-right: 20px; /* Espacement à droite du texte */
+}
+
+/* Trait horizontal */
+.page-info-1-rectangle::before {
+    content: "";
+    position: absolute;
+    top: 40px; /* Décalé de 40px du haut */
+    left: 0;
+    width: 100%; /* La largeur du rectangle */
+    height: 2px; /* Hauteur du trait, plus épais */
+    background-color: black; /* Couleur du trait */
+    margin-bottom: 50px;
+}
+
+/* Classe ajoutée pour rendre le rectangle visible */
+.page-info-1-rectangle.visible {
     opacity: 1; /* Rendre visible */
     visibility: visible; /* Afficher le rectangle */
     transition: opacity 0.6s ease; /* Animation de transition pour la visibilité */
 }
 
-.mail-rectangle p {
+/* Paragraphe */
+.page-info-1-rectangle p {
+    font-size: 16px;
+    font-family: 'Open Sauce One', sans-serif;
+    color: black;
+    text-align: justify; /* Justifier le texte */
+    line-height: 1.8; /* Améliorer la lisibilité */
+    margin-left: 20px; /* Espacement sous le titre */
+}
+
+/* Titre */
+.page-info-1-rectangle h1 {
+    margin-top: 230px; /* Espacement sous le titre */
+    margin-bottom: 20px; /* Espacement sous le titre */
+    margin-left: 20px; /* Espacement sous le titre */
+    font-size: 24px; /* Taille du titre */
+    font-family: 'Open Sauce One', bold; /* Griser le titre */
+    color: black;
+    text-align: justify; /* Justifier le texte */
+    position: relative; /* Nécessaire pour positionner le trait horizontal */
+}
+
+/* Trait horizontal sous le titre */
+.page-info-1-rectangle h1::after {
+    content: "";
+    position: absolute;
+    bottom: -10px; /* Décale le trait légèrement sous le titre */
+    left: 0;
+    width: 100%; /* La largeur du titre */
+    height: 2px; /* Hauteur du trait */
+    background-color: black; /* Couleur du trait */
+}
+
+.retour-informations-rectangle {
+        width: 440px; /* Largeur du rectangle blanc */
+        height: 50px; /* Hauteur du rectangle blanc */
+        background-color: #f4f4f4;
+        border: 1px solid black;
+        border-radius: 4px; /* Coins arrondis */
+        position: fixed; /* Position fixe pour qu'il soit au centre de la page */
+        box-shadow: 8px 8px 0px 0px black;
+        top: 82.5%; /* Centrer verticalement */
+        left: 50%; /* Centrer horizontalement */
+        transform: translateX(-450px); /* Ajuste le rectangle en le décalant de la moitié de sa largeur */
+        opacity: 0; /* Initialement invisible */
+        visibility: hidden; /* Masquer au début */
+        transition: opacity 0.6s ease, visibility 0s 0.6s; /* Animation de transition pour l'apparition */
+        display: flex;
+        justify-content: center; /* Centre le contenu horizontalement */
+        align-items: center; /* Centre le contenu verticalement */
+        text-align: center; /* Centre le texte */
+        user-select: none; /* Empêche la sélection de texte */
+}
+
+/* Classe ajoutée pour rendre le rectangle visible */
+.retour-informations-rectangle.visible {
+    opacity: 1; /* Rendre visible */
+    visibility: visible; /* Afficher le rectangle */
+    transition: opacity 0.6s ease; /* Animation de transition pour la visibilité */
+}
+
+/* Effet de survol pour le rectangle "prendre" */
+.retour-informations-rectangle:hover {
+    background-color: #a5a5a5; /* Changer la couleur de fond sur le survol */
+    box-shadow: 8px 8px 0px 0px black;
+    font-weight: bold; /* Appliquer le gras sur le texte lors du survol */
+    cursor: pointer; /* Changer le curseur pour indiquer qu'il est cliquable */
+}
+
+.retour-informations-rectangle p {
     margin: 0; /* Éviter l'espace par défaut des balises <p> */
     font-size: 16px; /* Ajuste la taille de la police */
     font-family: 'Open Sauce One', sans-serif; /* Utiliser la même police que le reste */
-    color: #333; /* Couleur du texte */
-    margin-bottom: 10px; /* Espace entre le texte et le champ de saisie */
+    color: black; /* Couleur du texte */
 }
 
-.mail-rectangle input {
-    width: 80%; /* Largeur du champ de saisie */
-    padding: 10px; /* Espace à l'intérieur du champ */
-    border: 1px solid #ccc; /* Bordure grise */
-    border-radius: 4px; /* Coins arrondis */
-    font-size: 16px; /* Taille du texte dans le champ */
-    margin-top: 10px; /* Espace au-dessus du champ de saisie */
-}
-
-.mdp-rectangle {
-    width: 300px; /* Largeur du rectangle blanc */
-    height: 100px; /* Hauteur ajustée pour inclure le champ de saisie */
+.suivant-page-1 {
+    width: 440px; /* Largeur du rectangle blanc */
+    height: 50px; /* Hauteur du rectangle blanc */
     background-color: #f4f4f4;
     border: 1px solid black;
     border-radius: 4px; /* Coins arrondis */
     position: fixed; /* Position fixe pour qu'il soit au centre de la page */
+    box-shadow: 8px 8px 0px 0px black;
+    top: 82.5%; /* Centrer verticalement */
+    left: 50%; /* Centrer horizontalement */
+    transform: translateX(+2%); /* Déplacer de -50% de la largeur du rectangle pour un centrage parfait */
+    opacity: 0; /* Initialement invisible */
+    visibility: hidden; /* Masquer au début */
+    transition: opacity 0.6s ease, visibility 0s 0.6s; /* Animation de transition pour l'apparition */
+    display: flex;
+    justify-content: center; /* Centre le contenu horizontalement */
+    align-items: center; /* Centre le contenu verticalement */
+    text-align: center; /* Centre le texte */
+    user-select: none; /* Empêche la sélection de texte */
+}
+
+
+/* Classe ajoutée pour rendre le rectangle visible */
+.suivant-page-1.visible {
+    opacity: 1; /* Rendre visible */
+    visibility: visible; /* Afficher le rectangle */
+    transition: opacity 0.6s ease; /* Animation de transition pour la visibilité */
+}
+
+/* Effet de survol pour le rectangle "prendre" */
+.suivant-page-1:hover {
+    background-color: #f5be49; /* Changer la couleur de fond sur le survol */
+    box-shadow: 8px 8px 0px 0px black;
+    font-weight: bold; /* Appliquer le gras sur le texte lors du survol */
+    cursor: pointer; /* Changer le curseur pour indiquer qu'il est cliquable */
+}
+
+.suivant-page-1 p {
+    margin: 0; /* Éviter l'espace par défaut des balises <p> */
+    font-size: 16px; /* Ajuste la taille de la police */
+    font-family: 'Open Sauce One', sans-serif; /* Utiliser la même police que le reste */
+    color: black; /* Couleur du texte */
+}
+
+.page-info-2-rectangle {
+    width: 900px; /* Largeur doublée */
+    height: 700px; /* Hauteur du rectangle */
+    background-color: #f4f4f4;
+    border: 1px solid black;
+    border-radius: 4px; /* Coins arrondis */
+    position: fixed; /* Nécessaire pour le positionnement absolu du trait */
     box-shadow: 8px 8px 0px 0px black;
     top: 50%; /* Centrer verticalement */
     left: 50%; /* Centrer horizontalement */
@@ -569,47 +650,79 @@ body {
     visibility: hidden; /* Masquer au début */
     transition: opacity 0.6s ease, visibility 0s 0.6s; /* Animation de transition pour l'apparition */
     display: flex;
-    flex-direction: column; /* Alignement en colonne pour le texte et l'input */
-    justify-content: center; /* Centre le contenu verticalement */
-    align-items: center; /* Centre le contenu horizontalement */
-    text-align: center; /* Centre le texte */
+    flex-direction: row; /* Organise les éléments horizontalement */
     user-select: none; /* Empêche la sélection de texte */
+    font-family: 'Open Sauce One', sans-serif; /* Définir la police de caractères (à ajuster selon ta préférence) */
+    font-size: 18px; /* Définir la taille du texte */
+    color: black; /* Couleur du texte */
+    line-height: 1.6; /* Espace entre les lignes pour une meilleure lisibilité */
 }
 
-.mdp-rectangle.visible {
+
+/* Trait horizontal */
+.page-info-2-rectangle::before {
+    content: "";
+    position: absolute;
+    top: 40px; /* Décalé de 40px du haut */
+    left: 0;
+    width: 100%; /* La largeur du rectangle */
+    height: 2px; /* Hauteur du trait, plus épais */
+    background-color: black; /* Couleur du trait */
+    margin-bottom: 50px;
+}
+
+/* Classe ajoutée pour rendre le rectangle visible */
+.page-info-2-rectangle.visible {
     opacity: 1; /* Rendre visible */
     visibility: visible; /* Afficher le rectangle */
     transition: opacity 0.6s ease; /* Animation de transition pour la visibilité */
 }
 
-.mdp-rectangle p {
-    margin: 0; /* Éviter l'espace par défaut des balises <p> */
-    font-size: 16px; /* Ajuste la taille de la police */
-    font-family: 'Open Sauce One', sans-serif; /* Utiliser la même police que le reste */
-    color: #333; /* Couleur du texte */
-    margin-bottom: 10px; /* Espace entre le texte et le champ de saisie */
+/* Paragraphe */
+.page-info-2-rectangle p {
+    font-size: 16px;
+    font-family: 'Open Sauce One', sans-serif;
+    color: black;
+    text-align: justify; /* Justifier le texte */
+    line-height: 1.8; /* Améliorer la lisibilité */
+    margin-left: 20px; /* Espacement sous le titre */
 }
 
-.mdp-rectangle input {
-    width: 80%; /* Largeur du champ de saisie */
-    padding: 10px; /* Espace à l'intérieur du champ */
-    border: 1px solid #ccc; /* Bordure grise */
-    border-radius: 4px; /* Coins arrondis */
-    font-size: 16px; /* Taille du texte dans le champ */
-    margin-top: 10px; /* Espace au-dessus du champ de saisie */
+/* Titre */
+.page-info-2-rectangle h1 {
+    margin-top: 120px; /* Espacement sous le titre */
+    margin-bottom: 20px; /* Espacement sous le titre */
+    margin-left: 20px; /* Espacement sous le titre */
+    font-size: 24px; /* Taille du titre */
+    font-family: 'Open Sauce One', bold; /* Griser le titre */
+    color: black;
+    text-align: justify; /* Justifier le texte */
+    position: relative; /* Nécessaire pour positionner le trait horizontal */
 }
 
-.retourmail-rectangle {
-    width: 100px; /* Largeur du rectangle blanc */
+/* Trait horizontal sous le titre */
+.page-info-2-rectangle h1::after {
+    content: "";
+    position: absolute;
+    bottom: -10px; /* Décale le trait légèrement sous le titre */
+    left: 0;
+    width: 100%; /* La largeur du titre */
+    height: 2px; /* Hauteur du trait */
+    background-color: black; /* Couleur du trait */
+}
+
+
+.retour-page-2-rectangle {
+    width: 440px; /* Largeur du rectangle blanc */
     height: 50px; /* Hauteur du rectangle blanc */
     background-color: #f4f4f4;
     border: 1px solid black;
     border-radius: 4px; /* Coins arrondis */
     position: fixed; /* Position fixe pour qu'il soit au centre de la page */
     box-shadow: 8px 8px 0px 0px black;
-    top: 60%; /* Centrer verticalement */
-    left: 44%; /* Centrer horizontalement */
-    transform: translate(-50%, -50%); /* Centrer exactement au milieu */
+    top: 82.5%; /* Centrer verticalement */
+    left: 50%; /* Centrer horizontalement */
+    transform: translateX(-450px); /* Ajuste le rectangle en le décalant de la moitié de sa largeur */
     opacity: 0; /* Initialement invisible */
     visibility: hidden; /* Masquer au début */
     transition: opacity 0.6s ease, visibility 0s 0.6s; /* Animation de transition pour l'apparition */
@@ -621,37 +734,182 @@ body {
 }
 
 /* Classe ajoutée pour rendre le rectangle visible */
-.retourmail-rectangle.visible {
-    opacity: 1; /* Rendre visible */
-    visibility: visible; /* Afficher le rectangle */
-    transition: opacity 0.6s ease; /* Animation de transition pour la visibilité */
+.retour-page-2-rectangle.visible {
+opacity: 1; /* Rendre visible */
+visibility: visible; /* Afficher le rectangle */
+transition: opacity 0.6s ease; /* Animation de transition pour la visibilité */
 }
 
 /* Effet de survol pour le rectangle "prendre" */
-.retourmail-rectangle:hover {
-    background-color: #a5a5a5; /* Changer la couleur de fond sur le survol */
-    box-shadow: 8px 8px 0px 0px black;
-    cursor: pointer; /* Changer le curseur pour indiquer qu'il est cliquable */
+.retour-page-2-rectangle:hover {
+background-color: #a5a5a5; /* Changer la couleur de fond sur le survol */
+box-shadow: 8px 8px 0px 0px black;
+font-weight: bold; /* Appliquer le gras sur le texte lors du survol */
+cursor: pointer; /* Changer le curseur pour indiquer qu'il est cliquable */
 }
 
-.retourmail-rectangle p {
-    margin: 0; /* Éviter l'espace par défaut des balises <p> */
-    font-size: 16px; /* Ajuste la taille de la police */
-    font-family: 'Open Sauce One', sans-serif; /* Utiliser la même police que le reste */
-    color: #333; /* Couleur du texte */
+.retour-page-2-rectangle p {
+margin: 0; /* Éviter l'espace par défaut des balises <p> */
+font-size: 16px; /* Ajuste la taille de la police */
+font-family: 'Open Sauce One', sans-serif; /* Utiliser la même police que le reste */
+color: black; /* Couleur du texte */
 }
 
-.suivant-rectangle {
-    width: 100px; /* Largeur du rectangle blanc */
+.suivant-page-2 {
+    width: 440px; /* Largeur du rectangle blanc */
     height: 50px; /* Hauteur du rectangle blanc */
     background-color: #f4f4f4;
     border: 1px solid black;
     border-radius: 4px; /* Coins arrondis */
     position: fixed; /* Position fixe pour qu'il soit au centre de la page */
     box-shadow: 8px 8px 0px 0px black;
-    top: 60%; /* Centrer verticalement */
-    left: 56%; /* Centrer horizontalement */
+    top: 82.5%; /* Centrer verticalement */
+    left: 50%; /* Centrer horizontalement */
+    transform: translateX(+2%); /* Déplacer de -50% de la largeur du rectangle pour un centrage parfait */
+    opacity: 0; /* Initialement invisible */
+    visibility: hidden; /* Masquer au début */
+    transition: opacity 0.6s ease, visibility 0s 0.6s; /* Animation de transition pour l'apparition */
+    display: flex;
+    justify-content: center; /* Centre le contenu horizontalement */
+    align-items: center; /* Centre le contenu verticalement */
+    text-align: center; /* Centre le texte */
+    user-select: none; /* Empêche la sélection de texte */
+}
+
+
+
+/* Classe ajoutée pour rendre le rectangle visible */
+.suivant-page-2.visible {
+opacity: 1; /* Rendre visible */
+visibility: visible; /* Afficher le rectangle */
+transition: opacity 0.6s ease; /* Animation de transition pour la visibilité */
+}
+
+/* Effet de survol pour le rectangle "prendre" */
+.suivant-page-2:hover {
+background-color: #f5be49; /* Changer la couleur de fond sur le survol */
+box-shadow: 8px 8px 0px 0px black;
+font-weight: bold; /* Appliquer le gras sur le texte lors du survol */
+cursor: pointer; /* Changer le curseur pour indiquer qu'il est cliquable */
+}
+
+.suivant-page-2 p {
+margin: 0; /* Éviter l'espace par défaut des balises <p> */
+font-size: 16px; /* Ajuste la taille de la police */
+font-family: 'Open Sauce One', sans-serif; /* Utiliser la même police que le reste */
+color: black; /* Couleur du texte */
+}
+
+.page-info-3-rectangle {
+    width: 900px; /* Largeur doublée */
+    height: 700px; /* Hauteur du rectangle */
+    background-color: #f4f4f4;
+    border: 1px solid black;
+    border-radius: 4px; /* Coins arrondis */
+    position: fixed; /* Nécessaire pour le positionnement absolu du trait */
+    box-shadow: 8px 8px 0px 0px black;
+    top: 50%; /* Centrer verticalement */
+    left: 50%; /* Centrer horizontalement */
     transform: translate(-50%, -50%); /* Centrer exactement au milieu */
+    opacity: 0; /* Initialement invisible */
+    visibility: hidden; /* Masquer au début */
+    transition: opacity 0.6s ease, visibility 0s 0.6s; /* Animation de transition pour l'apparition */
+    display: flex;
+    flex-direction: row; /* Organise les éléments horizontalement */
+    user-select: none; /* Empêche la sélection de texte */
+    font-family: 'Open Sauce One', sans-serif; /* Définir la police de caractères (à ajuster selon ta préférence) */
+    font-size: 18px; /* Définir la taille du texte */
+    color: black; /* Couleur du texte */
+    line-height: 1.6; /* Espace entre les lignes pour une meilleure lisibilité */
+}
+
+
+/* Trait horizontal */
+.page-info-3-rectangle::before {
+    content: "";
+    position: absolute;
+    top: 40px; /* Décalé de 40px du haut */
+    left: 0;
+    width: 100%; /* La largeur du rectangle */
+    height: 2px; /* Hauteur du trait, plus épais */
+    background-color: black; /* Couleur du trait */
+    margin-bottom: 50px;
+}
+
+/* Classe ajoutée pour rendre le rectangle visible */
+.page-info-3-rectangle.visible {
+    opacity: 1; /* Rendre visible */
+    visibility: visible; /* Afficher le rectangle */
+    transition: opacity 0.6s ease; /* Animation de transition pour la visibilité */
+}
+
+/* Paragraphe */
+.page-info-3-rectangle p {
+    font-size: 16px;
+    font-family: 'Open Sauce One', sans-serif;
+    color: black;
+    text-align: justify; /* Justifier le texte */
+    line-height: 1.8; /* Améliorer la lisibilité */
+    margin-left: 20px; /* Espacement sous le titre */
+}
+
+/* Titre */
+.page-info-3-rectangle h1 {
+    margin-top: 50px; /* Espacement sous le titre */
+    margin-bottom: 20px; /* Espacement sous le titre */
+    margin-left: 20px; /* Espacement sous le titre */
+    font-size: 24px; /* Taille du titre */
+    font-family: 'Open Sauce One', bold; /* Griser le titre */
+    color: black;
+    text-align: justify; /* Justifier le texte */
+    position: relative; /* Nécessaire pour positionner le trait horizontal */
+}
+
+/* Trait horizontal sous le titre */
+.page-info-3-rectangle h1::after {
+    content: "";
+    position: absolute;
+    bottom: -10px; /* Décale le trait légèrement sous le titre */
+    left: 0;
+    width: 100%; /* La largeur du titre */
+    height: 2px; /* Hauteur du trait */
+    background-color: black; /* Couleur du trait */
+}
+
+/* Titre */
+.page-info-3-rectangle h2 {
+    margin-top: 20px; /* Espacement sous le titre */
+    margin-bottom: 20px; /* Espacement sous le titre */
+    margin-left: 20px; /* Espacement sous le titre */
+    font-size: 18px; /* Taille du titre */
+    font-family: 'Open Sauce One', bold; /* Griser le titre */
+    color: black;
+    text-align: justify; /* Justifier le texte */
+    position: relative; /* Nécessaire pour positionner le trait horizontal */
+}
+
+/* Trait horizontal sous le titre */
+.page-info-3-rectangle h2::after {
+    content: "";
+    position: absolute;
+    bottom: -10px; /* Décale le trait légèrement sous le titre */
+    left: 0;
+    width: 50%; /* La largeur du titre */
+    height: 1px; /* Hauteur du trait */
+    background-color: black; /* Couleur du trait */
+}
+
+.retour-page-3-rectangle {
+    width: 440px; /* Largeur du rectangle blanc */
+    height: 50px; /* Hauteur du rectangle blanc */
+    background-color: #f4f4f4;
+    border: 1px solid black;
+    border-radius: 4px; /* Coins arrondis */
+    position: fixed; /* Position fixe pour qu'il soit au centre de la page */
+    box-shadow: 8px 8px 0px 0px black;
+    top: 82.5%; /* Centrer verticalement */
+    left: 50%; /* Centrer horizontalement */
+    transform: translateX(-450px); /* Ajuste le rectangle en le décalant de la moitié de sa largeur */
     opacity: 0; /* Initialement invisible */
     visibility: hidden; /* Masquer au début */
     transition: opacity 0.6s ease, visibility 0s 0.6s; /* Animation de transition pour l'apparition */
@@ -663,37 +921,160 @@ body {
 }
 
 /* Classe ajoutée pour rendre le rectangle visible */
-.suivant-rectangle.visible {
-    opacity: 1; /* Rendre visible */
-    visibility: visible; /* Afficher le rectangle */
-    transition: opacity 0.6s ease; /* Animation de transition pour la visibilité */
+.retour-page-3-rectangle.visible {
+opacity: 1; /* Rendre visible */
+visibility: visible; /* Afficher le rectangle */
+transition: opacity 0.6s ease; /* Animation de transition pour la visibilité */
 }
 
 /* Effet de survol pour le rectangle "prendre" */
-.suivant-rectangle:hover {
-    background-color: #5271ff; /* Changer la couleur de fond sur le survol */
-    box-shadow: 8px 8px 0px 0px black;
-    cursor: pointer; /* Changer le curseur pour indiquer qu'il est cliquable */
+.retour-page-3-rectangle:hover {
+background-color: #a5a5a5; /* Changer la couleur de fond sur le survol */
+box-shadow: 8px 8px 0px 0px black;
+font-weight: bold; /* Appliquer le gras sur le texte lors du survol */
+cursor: pointer; /* Changer le curseur pour indiquer qu'il est cliquable */
 }
 
-.suivant-rectangle p {
-    margin: 0; /* Éviter l'espace par défaut des balises <p> */
-    font-size: 16px; /* Ajuste la taille de la police */
-    font-family: 'Open Sauce One', sans-serif; /* Utiliser la même police que le reste */
-    color: #333; /* Couleur du texte */
+.retour-page-3-rectangle p {
+margin: 0; /* Éviter l'espace par défaut des balises <p> */
+font-size: 16px; /* Ajuste la taille de la police */
+font-family: 'Open Sauce One', sans-serif; /* Utiliser la même police que le reste */
+color: black; /* Couleur du texte */
 }
 
-.demat-rectangle {
-    width: 100px; /* Largeur du rectangle blanc */
+.suivant-page-3 {
+    width: 440px; /* Largeur du rectangle blanc */
     height: 50px; /* Hauteur du rectangle blanc */
     background-color: #f4f4f4;
     border: 1px solid black;
     border-radius: 4px; /* Coins arrondis */
     position: fixed; /* Position fixe pour qu'il soit au centre de la page */
     box-shadow: 8px 8px 0px 0px black;
-    top: 60%; /* Centrer verticalement */
-    left: 56%; /* Centrer horizontalement */
+    top: 82.5%; /* Centrer verticalement */
+    left: 50%; /* Centrer horizontalement */
+    transform: translateX(+2%); /* Déplacer de -50% de la largeur du rectangle pour un centrage parfait */
+    opacity: 0; /* Initialement invisible */
+    visibility: hidden; /* Masquer au début */
+    transition: opacity 0.6s ease, visibility 0s 0.6s; /* Animation de transition pour l'apparition */
+    display: flex;
+    justify-content: center; /* Centre le contenu horizontalement */
+    align-items: center; /* Centre le contenu verticalement */
+    text-align: center; /* Centre le texte */
+    user-select: none; /* Empêche la sélection de texte */
+}
+
+
+
+/* Classe ajoutée pour rendre le rectangle visible */
+.suivant-page-3.visible {
+opacity: 1; /* Rendre visible */
+visibility: visible; /* Afficher le rectangle */
+transition: opacity 0.6s ease; /* Animation de transition pour la visibilité */
+}
+
+/* Effet de survol pour le rectangle "prendre" */
+.suivant-page-3:hover {
+background-color: #f5be49; /* Changer la couleur de fond sur le survol */
+box-shadow: 8px 8px 0px 0px black;
+font-weight: bold; /* Appliquer le gras sur le texte lors du survol */
+cursor: pointer; /* Changer le curseur pour indiquer qu'il est cliquable */
+}
+
+.suivant-page-3 p {
+margin: 0; /* Éviter l'espace par défaut des balises <p> */
+font-size: 16px; /* Ajuste la taille de la police */
+font-family: 'Open Sauce One', sans-serif; /* Utiliser la même police que le reste */
+color: black; /* Couleur du texte */
+}
+
+.page-info-4-rectangle {
+    width: 900px; /* Largeur doublée */
+    height: 700px; /* Hauteur du rectangle */
+    background-color: #f4f4f4;
+    border: 1px solid black;
+    border-radius: 4px; /* Coins arrondis */
+    position: fixed; /* Nécessaire pour le positionnement absolu du trait */
+    box-shadow: 8px 8px 0px 0px black;
+    top: 50%; /* Centrer verticalement */
+    left: 50%; /* Centrer horizontalement */
     transform: translate(-50%, -50%); /* Centrer exactement au milieu */
+    opacity: 0; /* Initialement invisible */
+    visibility: hidden; /* Masquer au début */
+    transition: opacity 0.6s ease, visibility 0s 0.6s; /* Animation de transition pour l'apparition */
+    display: flex;
+    flex-direction: row; /* Organise les éléments horizontalement */
+    user-select: none; /* Empêche la sélection de texte */
+    font-family: 'Open Sauce One', sans-serif; /* Définir la police de caractères (à ajuster selon ta préférence) */
+    font-size: 18px; /* Définir la taille du texte */
+    color: black; /* Couleur du texte */
+    line-height: 1.6; /* Espace entre les lignes pour une meilleure lisibilité */
+}
+
+
+/* Trait horizontal */
+.page-info-4-rectangle::before {
+    content: "";
+    position: absolute;
+    top: 40px; /* Décalé de 40px du haut */
+    left: 0;
+    width: 100%; /* La largeur du rectangle */
+    height: 2px; /* Hauteur du trait, plus épais */
+    background-color: black; /* Couleur du trait */
+    margin-bottom: 50px;
+}
+
+/* Classe ajoutée pour rendre le rectangle visible */
+.page-info-4-rectangle.visible {
+    opacity: 1; /* Rendre visible */
+    visibility: visible; /* Afficher le rectangle */
+    transition: opacity 0.6s ease; /* Animation de transition pour la visibilité */
+}
+
+/* Paragraphe */
+.page-info-4-rectangle p {
+    font-size: 16px;
+    font-family: 'Open Sauce One', sans-serif;
+    color: black;
+    text-align: justify; /* Justifier le texte */
+    line-height: 1.8; /* Améliorer la lisibilité */
+    margin-left: 20px; /* Espacement sous le titre */
+}
+
+/* Titre */
+.page-info-4-rectangle h1 {
+    margin-top: 120px; /* Espacement sous le titre */
+    margin-bottom: 20px; /* Espacement sous le titre */
+    margin-left: 20px; /* Espacement sous le titre */
+    font-size: 24px; /* Taille du titre */
+    font-family: 'Open Sauce One', bold; /* Griser le titre */
+    color: black;
+    text-align: justify; /* Justifier le texte */
+    position: relative; /* Nécessaire pour positionner le trait horizontal */
+}
+
+/* Trait horizontal sous le titre */
+.page-info-4-rectangle h1::after {
+    content: "";
+    position: absolute;
+    bottom: -10px; /* Décale le trait légèrement sous le titre */
+    left: 0;
+    width: 100%; /* La largeur du titre */
+    height: 2px; /* Hauteur du trait */
+    background-color: black; /* Couleur du trait */
+}
+
+
+.retour-page-4-rectangle {
+    width: 440px; /* Largeur du rectangle blanc */
+    height: 50px; /* Hauteur du rectangle blanc */
+    background-color: #f4f4f4;
+    border: 1px solid black;
+    border-radius: 4px; /* Coins arrondis */
+    position: fixed; /* Position fixe pour qu'il soit au centre de la page */
+    box-shadow: 8px 8px 0px 0px black;
+    top: 82.5%; /* Centrer verticalement */
+    left: 50%; /* Centrer horizontalement */
+    transform: translateX(-450px); /* Ajuste le rectangle en le décalant de la moitié de sa largeur */
     opacity: 0; /* Initialement invisible */
     visibility: hidden; /* Masquer au début */
     transition: opacity 0.6s ease, visibility 0s 0.6s; /* Animation de transition pour l'apparition */
@@ -705,26 +1086,255 @@ body {
 }
 
 /* Classe ajoutée pour rendre le rectangle visible */
-.demat-rectangle.visible {
+.retour-page-4-rectangle.visible {
+opacity: 1; /* Rendre visible */
+visibility: visible; /* Afficher le rectangle */
+transition: opacity 0.6s ease; /* Animation de transition pour la visibilité */
+}
+
+/* Effet de survol pour le rectangle "prendre" */
+.retour-page-4-rectangle:hover {
+background-color: #a5a5a5; /* Changer la couleur de fond sur le survol */
+box-shadow: 8px 8px 0px 0px black;
+font-weight: bold; /* Appliquer le gras sur le texte lors du survol */
+cursor: pointer; /* Changer le curseur pour indiquer qu'il est cliquable */
+}
+
+.retour-page-4-rectangle p {
+margin: 0; /* Éviter l'espace par défaut des balises <p> */
+font-size: 16px; /* Ajuste la taille de la police */
+font-family: 'Open Sauce One', sans-serif; /* Utiliser la même police que le reste */
+color: black; /* Couleur du texte */
+}
+
+.suivant-page-4 {
+    width: 440px; /* Largeur du rectangle blanc */
+    height: 50px; /* Hauteur du rectangle blanc */
+    background-color: #f4f4f4;
+    border: 1px solid black;
+    border-radius: 4px; /* Coins arrondis */
+    position: fixed; /* Position fixe pour qu'il soit au centre de la page */
+    box-shadow: 8px 8px 0px 0px black;
+    top: 82.5%; /* Centrer verticalement */
+    left: 50%; /* Centrer horizontalement */
+    transform: translateX(+2%); /* Déplacer de -50% de la largeur du rectangle pour un centrage parfait */
+    opacity: 0; /* Initialement invisible */
+    visibility: hidden; /* Masquer au début */
+    transition: opacity 0.6s ease, visibility 0s 0.6s; /* Animation de transition pour l'apparition */
+    display: flex;
+    justify-content: center; /* Centre le contenu horizontalement */
+    align-items: center; /* Centre le contenu verticalement */
+    text-align: center; /* Centre le texte */
+    user-select: none; /* Empêche la sélection de texte */
+}
+
+
+
+/* Classe ajoutée pour rendre le rectangle visible */
+.suivant-page-4.visible {
+opacity: 1; /* Rendre visible */
+visibility: visible; /* Afficher le rectangle */
+transition: opacity 0.6s ease; /* Animation de transition pour la visibilité */
+}
+
+/* Effet de survol pour le rectangle "prendre" */
+.suivant-page-4:hover {
+background-color: #f5be49; /* Changer la couleur de fond sur le survol */
+box-shadow: 8px 8px 0px 0px black;
+font-weight: bold; /* Appliquer le gras sur le texte lors du survol */
+cursor: pointer; /* Changer le curseur pour indiquer qu'il est cliquable */
+}
+
+.suivant-page-4 p {
+margin: 0; /* Éviter l'espace par défaut des balises <p> */
+font-size: 16px; /* Ajuste la taille de la police */
+font-family: 'Open Sauce One', sans-serif; /* Utiliser la même police que le reste */
+color: black; /* Couleur du texte */
+}
+
+.page-info-5-rectangle {
+    width: 900px; /* Largeur doublée */
+    height: 700px; /* Hauteur du rectangle */
+    background-color: #f4f4f4;
+    border: 1px solid black;
+    border-radius: 4px; /* Coins arrondis */
+    position: fixed; /* Nécessaire pour le positionnement absolu du trait */
+    box-shadow: 8px 8px 0px 0px black;
+    top: 50%; /* Centrer verticalement */
+    left: 50%; /* Centrer horizontalement */
+    transform: translate(-50%, -50%); /* Centrer exactement au milieu */
+    opacity: 0; /* Initialement invisible */
+    visibility: hidden; /* Masquer au début */
+    transition: opacity 0.6s ease, visibility 0s 0.6s; /* Animation de transition pour l'apparition */
+    display: flex;
+    flex-direction: row; /* Organise les éléments horizontalement */
+    user-select: none; /* Empêche la sélection de texte */
+    font-family: 'Open Sauce One', sans-serif; /* Définir la police de caractères (à ajuster selon ta préférence) */
+    font-size: 18px; /* Définir la taille du texte */
+    color: black; /* Couleur du texte */
+    line-height: 1.6; /* Espace entre les lignes pour une meilleure lisibilité */
+}
+
+
+/* Trait horizontal */
+.page-info-5-rectangle::before {
+    content: "";
+    position: absolute;
+    top: 40px; /* Décalé de 40px du haut */
+    left: 0;
+    width: 100%; /* La largeur du rectangle */
+    height: 2px; /* Hauteur du trait, plus épais */
+    background-color: black; /* Couleur du trait */
+    margin-bottom: 50px;
+}
+
+/* Classe ajoutée pour rendre le rectangle visible */
+.page-info-5-rectangle.visible {
     opacity: 1; /* Rendre visible */
     visibility: visible; /* Afficher le rectangle */
     transition: opacity 0.6s ease; /* Animation de transition pour la visibilité */
 }
 
-/* Effet de survol pour le rectangle "prendre" */
-.demat-rectangle:hover {
-    background-color: #5271ff; /* Changer la couleur de fond sur le survol */
+/* Paragraphe */
+.page-info-5-rectangle p {
+    font-size: 16px;
+    font-family: 'Open Sauce One', sans-serif;
+    color: black;
+    text-align: justify; /* Justifier le texte */
+    line-height: 1.8; /* Améliorer la lisibilité */
+    margin-left: 20px; /* Espacement sous le titre */
+}
+
+/* Titre */
+.page-info-5-rectangle h1 {
+    margin-top: 80px; /* Espacement sous le titre */
+    margin-bottom: 20px; /* Espacement sous le titre */
+    margin-left: 20px; /* Espacement sous le titre */
+    font-size: 24px; /* Taille du titre */
+    font-family: 'Open Sauce One', bold; /* Griser le titre */
+    color: black;
+    text-align: justify; /* Justifier le texte */
+    position: relative; /* Nécessaire pour positionner le trait horizontal */
+}
+
+/* Trait horizontal sous le titre */
+.page-info-5-rectangle h1::after {
+    content: "";
+    position: absolute;
+    bottom: -10px; /* Décale le trait légèrement sous le titre */
+    left: 0;
+    width: 100%; /* La largeur du titre */
+    height: 2px; /* Hauteur du trait */
+    background-color: black; /* Couleur du trait */
+}
+
+/* Titre */
+.page-info-5-rectangle h2 {
+    margin-top: 20px; /* Espacement sous le titre */
+    margin-bottom: 20px; /* Espacement sous le titre */
+    margin-left: 20px; /* Espacement sous le titre */
+    font-size: 18px; /* Taille du titre */
+    font-family: 'Open Sauce One', bold; /* Griser le titre */
+    color: black;
+    text-align: justify; /* Justifier le texte */
+    position: relative; /* Nécessaire pour positionner le trait horizontal */
+}
+
+/* Trait horizontal sous le titre */
+.page-info-5-rectangle h2::after {
+    content: "";
+    position: absolute;
+    bottom: -10px; /* Décale le trait légèrement sous le titre */
+    left: 0;
+    width: 50%; /* La largeur du titre */
+    height: 1px; /* Hauteur du trait */
+    background-color: black; /* Couleur du trait */
+}
+
+.retour-page-5-rectangle {
+    width: 440px; /* Largeur du rectangle blanc */
+    height: 50px; /* Hauteur du rectangle blanc */
+    background-color: #f4f4f4;
+    border: 1px solid black;
+    border-radius: 4px; /* Coins arrondis */
+    position: fixed; /* Position fixe pour qu'il soit au centre de la page */
     box-shadow: 8px 8px 0px 0px black;
-    cursor: pointer; /* Changer le curseur pour indiquer qu'il est cliquable */
+    top: 82.5%; /* Centrer verticalement */
+    left: 50%; /* Centrer horizontalement */
+    transform: translateX(-450px); /* Ajuste le rectangle en le décalant de la moitié de sa largeur */
+    opacity: 0; /* Initialement invisible */
+    visibility: hidden; /* Masquer au début */
+    transition: opacity 0.6s ease, visibility 0s 0.6s; /* Animation de transition pour l'apparition */
+    display: flex;
+    justify-content: center; /* Centre le contenu horizontalement */
+    align-items: center; /* Centre le contenu verticalement */
+    text-align: center; /* Centre le texte */
+    user-select: none; /* Empêche la sélection de texte */
 }
 
-.demat-rectangle p {
-    margin: 0; /* Éviter l'espace par défaut des balises <p> */
-    font-size: 16px; /* Ajuste la taille de la police */
-    font-family: 'Open Sauce One', sans-serif; /* Utiliser la même police que le reste */
-    color: #333; /* Couleur du texte */
+/* Classe ajoutée pour rendre le rectangle visible */
+.retour-page-5-rectangle.visible {
+opacity: 1; /* Rendre visible */
+visibility: visible; /* Afficher le rectangle */
+transition: opacity 0.6s ease; /* Animation de transition pour la visibilité */
 }
 
-    
-    
-    
+/* Effet de survol pour le rectangle "prendre" */
+.retour-page-5-rectangle:hover {
+background-color: #a5a5a5; /* Changer la couleur de fond sur le survol */
+box-shadow: 8px 8px 0px 0px black;
+font-weight: bold; /* Appliquer le gras sur le texte lors du survol */
+cursor: pointer; /* Changer le curseur pour indiquer qu'il est cliquable */
+}
+
+.retour-page-5-rectangle p {
+margin: 0; /* Éviter l'espace par défaut des balises <p> */
+font-size: 16px; /* Ajuste la taille de la police */
+font-family: 'Open Sauce One', sans-serif; /* Utiliser la même police que le reste */
+color: black; /* Couleur du texte */
+}
+
+.suivant-page-5 {
+    width: 440px; /* Largeur du rectangle blanc */
+    height: 50px; /* Hauteur du rectangle blanc */
+    background-color: #f4f4f4;
+    border: 1px solid black;
+    border-radius: 4px; /* Coins arrondis */
+    position: fixed; /* Position fixe pour qu'il soit au centre de la page */
+    box-shadow: 8px 8px 0px 0px black;
+    top: 82.5%; /* Centrer verticalement */
+    left: 50%; /* Centrer horizontalement */
+    transform: translateX(+2%); /* Déplacer de -50% de la largeur du rectangle pour un centrage parfait */
+    opacity: 0; /* Initialement invisible */
+    visibility: hidden; /* Masquer au début */
+    transition: opacity 0.6s ease, visibility 0s 0.6s; /* Animation de transition pour l'apparition */
+    display: flex;
+    justify-content: center; /* Centre le contenu horizontalement */
+    align-items: center; /* Centre le contenu verticalement */
+    text-align: center; /* Centre le texte */
+    user-select: none; /* Empêche la sélection de texte */
+}
+
+
+
+/* Classe ajoutée pour rendre le rectangle visible */
+.suivant-page-5.visible {
+opacity: 1; /* Rendre visible */
+visibility: visible; /* Afficher le rectangle */
+transition: opacity 0.6s ease; /* Animation de transition pour la visibilité */
+}
+
+/* Effet de survol pour le rectangle "prendre" */
+.suivant-page-5:hover {
+background-color: #f5be49; /* Changer la couleur de fond sur le survol */
+box-shadow: 8px 8px 0px 0px black;
+font-weight: bold; /* Appliquer le gras sur le texte lors du survol */
+cursor: pointer; /* Changer le curseur pour indiquer qu'il est cliquable */
+}
+
+.suivant-page-5 p {
+margin: 0; /* Éviter l'espace par défaut des balises <p> */
+font-size: 16px; /* Ajuste la taille de la police */
+font-family: 'Open Sauce One', sans-serif; /* Utiliser la même police que le reste */
+color: black; /* Couleur du texte */
+}  
