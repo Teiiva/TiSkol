@@ -230,24 +230,12 @@
             // Afficher les données en console (pour les tests)
             console.log(jsonData);
 
-            // Envoi des données au serveur via fetch
-            fetch('https://github.com/Teiiva/TiSkol', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(jsonData), // Convertir les données en JSON
-            })
-            .then(response => response.json()) // Traiter la réponse du serveur
-            .then(data => {
-                console.log('Réponse du serveur:', data);
-                alert('Données envoyées avec succès!');
-            })
-            .catch(error => {
-                console.error('Erreur:', error);
-                alert('Erreur lors de l\'envoi des données.');
-            });
-        });
+            fetch('https://api.github.com/repos/Teiiva/TiSkol')
+                .then(response => response.json())
+                .then(data => console.log(data))
+                .catch(error => console.error('Erreur:', error));
+
+                        });
 
 
 
