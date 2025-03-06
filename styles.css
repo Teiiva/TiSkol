@@ -51,6 +51,7 @@
     animation: moveUpRectangle 0.6s ease-in-out forwards; /* Animation fluide */
 }
 
+
 /* Chargement de la police Open Sauce depuis le dossier local */
 @font-face {
     font-family: 'Open Sauce One';
@@ -82,7 +83,7 @@
 
 @font-face {
     font-family: 'Esmeralda';
-    src: url('fonts/esmeraldagroterk-Regular.ttf') format('opentype'); /* Spécifie le chemin relatif vers le fichier */
+    src: url('fonts\esmeraldagroterk-Regular.otf') format('opentype'); /* Spécifie le chemin relatif vers le fichier */
     font-weight: normal;
     font-style: normal;
 }
@@ -527,7 +528,7 @@ body {
 
 /* Titre */
 .page-info-1-rectangle h1 {
-    margin-top: 230px; /* Espacement sous le titre */
+    margin-top: 80px; /* Espacement sous le titre */
     margin-bottom: 20px; /* Espacement sous le titre */
     margin-left: 20px; /* Espacement sous le titre */
     font-size: 24px; /* Taille du titre */
@@ -690,7 +691,7 @@ body {
 
 /* Titre */
 .page-info-2-rectangle h1 {
-    margin-top: 120px; /* Espacement sous le titre */
+    margin-top: 60px; /* Espacement sous le titre */
     margin-bottom: 20px; /* Espacement sous le titre */
     margin-left: 20px; /* Espacement sous le titre */
     font-size: 24px; /* Taille du titre */
@@ -787,7 +788,7 @@ transition: opacity 0.6s ease; /* Animation de transition pour la visibilité */
 
 /* Effet de survol pour le rectangle "prendre" */
 .suivant-page-2:hover {
-background-color: #f5be49; /* Changer la couleur de fond sur le survol */
+background-color: #5271ff; /* Changer la couleur de fond sur le survol */
 box-shadow: 8px 8px 0px 0px black;
 font-weight: bold; /* Appliquer le gras sur le texte lors du survol */
 cursor: pointer; /* Changer le curseur pour indiquer qu'il est cliquable */
@@ -1338,3 +1339,26 @@ font-size: 16px; /* Ajuste la taille de la police */
 font-family: 'Open Sauce One', sans-serif; /* Utiliser la même police que le reste */
 color: black; /* Couleur du texte */
 }  
+
+.yellow-box {
+    width: 900px; /* S'assure que la boîte prend toute la largeur */
+    background-color: #f5be49;
+    height:40px;
+}
+
+.blue-box {
+    width: 900px; /* S'assure que la boîte prend toute la largeur */
+    background-color: #5271ff;
+    height:40px;
+}
+
+.grey-box {
+    flex: 1; /* Ne permet pas à l'élément de s'étendre, mais fixe sa largeur à 400px */
+    background-color: #a5a5a5;
+    height: 100%;
+    clip-path: inset(42px 0 0 0);
+    background-image: url('logo_black.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}

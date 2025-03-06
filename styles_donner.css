@@ -1,0 +1,286 @@
+/* Loading the Open Sauce font from local directory */
+@font-face {
+    font-family: 'Open Sauce One';
+    src: url('fonts/OpenSauceOne-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Open Sauce One';
+    src: url('fonts/OpenSauceOne-ExtraBold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Open Sauce One';
+    src: url('fonts/OpenSauceOne-Light.ttf') format('truetype');
+    font-weight: light;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Libre Baskerville';
+    src: url('fonts/LibreBaskerville-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+body {
+    background-color: #f5be49;
+    font-family: 'Open Sauce One', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    transition: background-color 0.5s ease;
+    pointer-events: auto; /* Remplacer 'none' par 'auto' */
+}
+
+
+.formulaire * {
+    pointer-events: auto;
+}
+
+.rectangle {
+    width: 900px;
+    height: 600px;
+    background-color: #f4f4f4;
+    border: 1px solid black;
+    border-radius: 4px;
+    position: relative;
+    display: flex;
+    padding: 20px;
+    box-shadow: 8px 8px 0px 0px black;
+    color: black;
+    animation: slideInRectangle 0.6s ease-in-out;
+    margin-top: 60px;
+    margin-bottom: 20px;
+}
+
+
+.rectangle::before {
+    content: "";
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: black;
+}
+
+.left-column {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    position: relative;
+}
+
+.left-column::after {
+    content: "";
+    position: absolute;
+    top: 40px;
+    right: 0;
+    width: 2px;
+    height: 90%;
+    background-color: #ccc;
+}
+
+.right-column {
+    flex: 1;
+    margin-top: 30px;
+    z-index: 11;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+}
+
+/* Style de la zone de dépôt */
+.dropzone {
+    position: relative;
+    width: 90%;
+    height: 300px; /* Ajuste la taille selon ton besoin */
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    border: 2px dashed #aaa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.dropzone img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Pour que l'image occupe toute la zone sans déformation */
+}
+
+#deleteButton {
+    position: absolute;
+    bottom: 10px;  /* Positionner le bouton en bas de la dropzone */
+    left: 50%;
+    transform: translateX(-50%); /* Centrer le bouton */
+    padding: 10px;
+    background-color: #f5be49;
+    color: rgb(0, 0, 0);
+    border: none;
+    cursor: pointer;
+}
+
+#deleteButton:hover {
+    background-color: #c59631;
+}
+
+
+.dropzone.dragover {
+    background-color: #ddd;
+}
+
+.dropzone:hover {
+    background-color: #f5be49;
+    border: 2px dashed #000000;
+    color: #000000;
+}
+
+.dropzone:active {
+    background-color: #d1d1d1;
+}
+
+
+.left-icon-container {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+.icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 15px;
+    height: 15px;
+    border: 1px solid black;
+    background-color: #f4f4f4;
+    border-radius: 50%;
+    font-family: 'Esmeralda', sans-serif;
+    font-size: 12px;
+    color: black;
+    user-select: none;
+}
+
+.formulaire {
+    margin-top: 60px;
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    max-width: 800px;
+}
+
+/* Animation for rectangle sliding */
+@keyframes slideInRectangle {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 768px) {
+    .rectangle {
+        width: 100%;
+        height: auto;
+        padding: 15px;
+    }
+
+    .left-column,
+    .right-column {
+        flex: 1 100%;
+    }
+
+    .dropzone {
+        height: 200px;
+    }
+}
+
+label {
+    font-family: 'Open Sauce One', normal;; /* Remplace 'Arial' par la police que tu souhaites */
+    font-size: 16px; /* Ajuste la taille de la police */
+    color: #333; /* Ajuste la couleur de la police */
+}
+
+input {
+    font-family: 'Open Sauce One', normal;; /* Remplace 'Arial' par la police que tu souhaites */
+    font-weight: normal; /* Par exemple, pour ne pas avoir de texte en gras */
+}
+
+
+
+/* Conteneur des boutons */
+.buttons-container {
+    width: 940px;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+/* Style pour le bouton Retour */
+#retour {
+    width: 460px; /* Chaque bouton prendra environ la moitié de la largeur de la zone disponible */
+    height: 50px; /* Hauteur du rectangle blanc */
+    background-color: #f4f4f4;
+    box-shadow: 8px 8px 0px 0px black;
+    color: rgb(0, 0, 0);
+    border: 1px solid black;
+    border-radius: 4px;
+    font-family: 'Open Sauce One', sans-serif;
+    cursor: pointer;
+    box-sizing: border-box;
+    transition: background-color 0.3s ease;
+    animation: slideInRectangle 0.6s ease-in-out;
+    font-family: 'Open Sauce One', normal;; /* Remplace 'Arial' par la police que tu souhaites */
+    font-weight: normal; /* Par exemple, pour ne pas avoir de texte en gras */
+    font-size: 16px; /* Ajuste la taille de la police */
+}
+
+#retour:hover {
+    background-color: #a5a5a5;
+}
+
+/* Style pour le bouton Soumettre */
+#soumettre {
+    width: 460px; /* Chaque bouton prendra environ la moitié de la largeur de la zone disponible */
+    height: 50px; /* Hauteur du rectangle blanc */
+    background-color: #f4f4f4;
+    box-shadow: 8px 8px 0px 0px black;
+    color: rgb(0, 0, 0);
+    border: 1px solid black;
+    border-radius: 4px;
+    font-family: 'Open Sauce One', sans-serif;
+    cursor: pointer;
+    box-sizing: border-box;
+    transition: background-color 0.3s ease;
+    animation: slideInRectangle 0.6s ease-in-out;
+    font-family: 'Open Sauce One', normal;; /* Remplace 'Arial' par la police que tu souhaites */
+    font-weight: normal; /* Par exemple, pour ne pas avoir de texte en gras */
+    font-size: 16px; /* Ajuste la taille de la police */
+}
+
+#soumettre:hover {
+    background-color: #f5be49; /* Une couleur plus sombre pour l'effet hover */
+}

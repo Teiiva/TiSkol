@@ -72,10 +72,12 @@
         </div>
         <div class="text-container">
             <h1>Qu'est-ce que TiSkol ?</h1>
-            <p>TiSkol est une plateforme d'éducation à domicile dédiée aux élèves qui souhaitent bénéficier de cours particuliers adaptés à leurs besoins. L'objectif de TiSkol est de rendre l'enseignement accessible, flexible et personnalisé, en offrant une solution pratique aux étudiants et aux familles confrontés à des difficultés d'apprentissage ou à un emploi du temps chargé.
-                cours dans diverses matières, ou donner des cours à d'autres, en fonction de leurs compétences. Ce système de cours particuliers permet non seulement de renforcer les connaissances, mais aussi d'améliorer la confiance en soi et la motivation des élèves.</p>
+            <p>TiSkol est une plateforme d'éducation à domicile dédiée aux élèves qui souhaitent bénéficier de cours particuliers adaptés à leurs besoins. <br><br>
+                L'objectif de TiSkol est de rendre l'enseignement accessible, flexible et personnalisé, en offrant une solution pratique aux étudiants et aux familles confrontés à des difficultés d'apprentissage ou à un emploi du temps chargé.<br><br>
+                Que vous soyez collégiens, lycéens ou étudiants vous pouvez prendre des cours dans diverses matières, ou en donner , en fonction de vos compétences. <br><br>
+                Ce système de cours particuliers permet non seulement de renforcer les connaissances, mais aussi d'améliorer la confiance en soi et la motivation des élèves.</p>
         </div>
-
+        <div class="grey-box"></div>
         
     </div>
 
@@ -87,10 +89,11 @@
             <div class="icon minus">−</div>
         </div>
         <div class="text-container">
-            <h1>Pourquoi ai-je eu cette idée ?</h1>
-            <p>Cette idée est née d'une volonté de rendre l'éducation plus accessible et de répondre à un besoin de soutien scolaire accru, notamment dans le contexte des défis éducatifs que rencontrent de nombreux étudiants aujourd'hui. En tant qu'étudiant passionné par les technologies et les solutions innovantes, j'ai voulu créer une plateforme simple, intuitive et efficace, qui permettrait aux élèves d'apprendre à leur rythme, tout en leur offrant l'opportunité de transmettre leur savoir à d'autres.
-
-                Ayant moi-même été confronté à la difficulté de trouver des solutions d'apprentissage qui me conviennent, j'ai décidé de concevoir TiSkol pour offrir aux élèves une manière flexible et personnalisée d'apprendre, et d'aider ceux qui sont dans le besoin.
+            <div class="blue-box"></div>
+            <h1>D'où viens TiSkol ?</h1>
+            <p>Cette idée est née d'une volonté de rendre l'éducation plus accessible et de répondre à un besoin de soutien scolaire accru, notamment dans le contexte des défis éducatifs que rencontrent de nombreux étudiants aujourd'hui. <br><br>
+                En tant qu'étudiant passionné par les technologies et les solutions innovantes, j'ai voulu créer une plateforme simple, intuitive et efficace, qui permettrait aux élèves d'apprendre à leur rythme, tout en leur offrant l'opportunité de transmettre leur savoir à d'autres.<br><br>
+                M'étant déjà retourver à donner des cours et à en chercher, j'ai constaté que ce n'était pas simple de trouver des infos en ligne, j'ai alors décidé de concevoir TiSkol pour offrir aux élèves une manière flexible et personnalisée d'apprendre, et d'aider ceux qui sont dans le besoin.<br><br>
                 
                 Au-delà de l'aspect éducatif, donner des cours est une expérience que j'ai adorée. En tant qu'étudiant, j'ai trouvé une véritable satisfaction à aider mes camarades à surmonter leurs difficultés. C'était non seulement enrichissant sur le plan personnel, mais c'est aussi devenu une source de revenu agréable, me permettant de mettre mes compétences au service des autres tout en soutenant ma propre trajectoire académique. Cela m'a motivé encore davantage à créer TiSkol, une plateforme où cette dynamique d'entraide et d'apprentissage mutuel puisse prospérer pour un maximum d'élèves.</p>
         </div>
@@ -481,6 +484,16 @@
                 }, 500); // 1 seconde après le clic
             });
         });
+
+        // Ajouter un événement de clic sur le rectangle "S'inscrire"
+        donnerRectangle.forEach(rect => {
+            rect.addEventListener('click', function() {
+                // Redirige l'utilisateur vers une autre page HTML
+                window.location.href = 'Donner.html'; // Remplacez 'nouvelle-page.html' par le nom de votre fichier HTML
+            });
+        });
+
+
         
         // Fonction pour changer la couleur du fond
         function changerFondCouleur(couleur) {
