@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TiSkol</title>
+    <link rel="stylesheet" href="styles_accueil.css">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <img src="logo_black.png" alt="Logo TiSkol" class="sidebar-logo">
+            <h1 class="sidebar-title">TiSkol</h1>
+        </div>
+
+        <div class="sidebar-button active">
+            <img src="logo_accueil_plein.png" alt="Icone 1" class="button-icon">
+            <span class="button-text-select">Accueil</span>
+        </div>
+        <div class="sidebar-button" onclick="window.location.href='prendre.html'">
+            <img src="logo_livre_vide.png" alt="Icone 2" class="button-icon">
+            <span class="button-text">Prendre des cours</span>
+        </div>
+        <div class="sidebar-button" onclick="window.location.href='donner.html'">
+            <img src="logo_suitcase_vide.png" alt="Icone 3" class="button-icon">
+            <span class="button-text">Donner des cours</span>
+        </div>
+        <div class="sidebar-button" onclick="window.location.href='contact.html'">
+            <img src="logo_contact_vide.png" alt="Icone 4" class="button-icon">
+            <span class="button-text">Contact</span>
+        </div>
+    </div>
+
+    <!-- Conteneur principal pour le titre de la page -->
+    <div class="page-content">
+        <h1 class="page-title">Bienvenue sur TiSkol</h1>
+        <p class="page-text">TiSkol met en relation les étudiants souhaitant donner des cours particuliers et ceux en quête de soutien scolaire. Trouvez le professeur idéal ou partagez vos connaissances en toute simplicité !</p>
+        <div class="button-container">
+            <button class="page-button" onclick="window.location.href='donner.html'">
+                <img src="logo_livre_vide_blue.png" alt="Image 1" class="button-image">
+                <span class="buttons-text">Prendre des cours</span>
+                <div class="button-arrow"></div> <!-- La flèche est ici -->
+                <div class="additional-text">
+                    Prendre des cours avec TiSkol, c'est choisir un apprentissage personnalisé et flexible, adapté à vos besoins et à votre rythme.
+                </div>
+            </button>
+            <button class="page-button">
+                <img src="logo_suitcase_vide_yellow.png" alt="Image 2" class="button-image">
+                <span class="buttons-text">Donner des cours</span>
+                <div class="button-arrow"></div> <!-- La flèche est ici -->
+                <div class="additional-text">
+                    Partagez votre savoir tout en développant vos compétences pédagogiques dans un environnement flexible et stimulant.
+                </div>
+            </button>
+        </div>
+
+
+        <div class="container">
+            <div class="left-section">
+                <div class="text-container">
+                    <div class="text-box">
+                        <h2 class="page-subtitle">Qu'est-ce que TiSkol ?</h2>
+                        <p>TiSkol est une plateforme d'éducation à domicile dédiée aux élèves qui souhaitent bénéficier de cours particuliers adaptés à leurs besoins. L'objectif est de rendre l'enseignement accessible, flexible et personnalisé, en offrant une solution pratique aux étudiants et aux familles confrontés à des difficultés d'apprentissage ou à un emploi du temps chargé. Que vous soyez collégiens, lycéens ou étudiants vous pouvez prendre des cours dans diverses matières, ou en donner , en fonction de vos compétences. Ce système de cours particuliers permet non seulement de renforcer les connaissances, mais aussi d'améliorer la confiance en soi et la motivation des élèves.</p>
+                    </div>
+                </div>
+        
+                <div class="text-container">
+                    <div class="text-box">
+                        <h2 class="page-subtitle">D'où vient TiSkol ?</h2>
+                        <p>Cette idée est née de la volonté de rendre l'éducation plus accessible et de répondre au besoin croissant de soutien scolaire. Passionné par les technologies et l'innovation, j'ai voulu créer une plateforme intuitive et efficace, permettant aux élèves d'apprendre à leur rythme et de partager leurs connaissances.
+                            Ayant moi-même donné et cherché des cours, j'ai constaté la difficulté de trouver des informations en ligne. C'est ainsi qu'est né TiSkol, une solution flexible et personnalisée pour aider les élèves. Enseigner m'a apporté une grande satisfaction, tant sur le plan personnel que financier, renforçant ma motivation à développer une plateforme favorisant l'entraide et l'apprentissage mutuel.</p>
+                    </div>
+                </div>
+        
+                <div class="text-container">
+                    <div class="text-box">
+                        <h2 class="page-subtitle">Pourquoi choisir TiSkol ?</h2>
+                        <p>TiSkol se distingue par son approche personnalisée, permettant à chaque élève de progresser à son rythme dans un environnement bienveillant. Les élèves choisissent l'heure et le mode de cours (en ligne ou en présentiel) qui leur conviennent.
+        
+                            Plus qu'une simple plateforme de cours particuliers, TiSkol offre une solution éducative innovante pour combler les lacunes scolaires et créer un apprentissage dynamique et collaboratif. Accessible et flexible, elle répond aux besoins des étudiants, parents et enseignants, offrant une éducation de qualité et adaptée à chacun.</p>
+                    </div>
+                </div>
+            
+            </div>
+        
+            <div class="right-section">
+                
+                <!-- Interface pour les enseignants -->
+                <button class="button_defil_enseignants">
+                    <span class="button-text-title">Pour les enseignants :</span>
+                    <ul class="button-text">
+                        <li>
+                            <span class="icon">📚 <strong>Développer ses compétences pédagogiques :</strong></span>
+                            <div class="description">
+                                Acquérir de l’expérience en tant qu’enseignant et renforcer ses connaissances dans les matières qu’ils enseignent.
+                            </div>
+                        </li>
+                        <li>
+                            <span class="icon">⏰ <strong>Flexibilité d’emploi du temps :</strong></span>
+                            <div class="description">
+                                Choisir leurs horaires et la fréquence des cours, leur permettant de mieux gérer leur emploi du temps.
+                            </div>
+                        </li>
+                        <li>
+                            <span class="icon">💵 <strong>Rémunération pour l’enseignement :</strong></span>
+                            <div class="description">
+                                Gagner de l’argent en enseignant et en partageant leurs connaissances avec d’autres.
+                            </div>
+                        </li>
+                        <li>
+                            <span class="icon">💪 <strong>Renforcement de la confiance en soi :</strong></span>
+                            <div class="description">
+                                En enseignant, ils améliorent leur capacité à communiquer, à présenter des idées et à résoudre des problèmes, augmentant ainsi leur confiance en eux.
+                            </div>
+                        </li>
+                        <li>
+                            <span class="icon">📑 <strong>Acquérir une expérience valorisable sur le CV :</strong></span>
+                            <div class="description">
+                                L’enseignement devient un atout important pour les candidatures futures dans de nombreux domaines, en particulier dans l’éducation et la gestion.
+                            </div>
+                        </li>
+                    </ul>
+                    <!-- Ajout de la sélection ici -->
+                    <div class="selection-container">
+                        <span class="selection-point" onclick="selectInterface('apprenant')">&#9679;</span>
+                        <span class="selection-point active" onclick="selectInterface('enseignant')">&#9679;</span>
+                    </div>
+                </button>
+
+                <!-- Interface pour les apprenants -->
+                <button class="button_defil_apprenants">
+                    <span class="button-text-title">Pour les apprenants :</span>
+                    <ul class="button-text">
+                        <li>
+                            <span class="icon">🎓 <strong>Apprentissage personnalisé :</strong></span>
+                            <div class="description">
+                                Bénéficier de cours adaptés à vos besoins, à votre rythme et selon vos préférences d'apprentissage.
+                            </div>
+                        </li>
+                        <li>
+                            <span class="icon">📅 <strong>Flexibilité dans la planification :</strong></span>
+                            <div class="description">
+                                Choisir vos horaires et votre rythme d’apprentissage, avec la possibilité de prendre des cours en ligne ou en présentiel.
+                            </div>
+                        </li>
+                        <li>
+                            <span class="icon">💡 <strong>Amélioration des compétences :</strong></span>
+                            <div class="description">
+                                Renforcer vos connaissances et compétences dans diverses matières grâce à l’enseignement personnalisé.
+                            </div>
+                        </li>
+                        <li>
+                            <span class="icon">💬 <strong>Interaction avec des enseignants passionnés :</strong></span>
+                            <div class="description">
+                                Bénéficier de l’expertise et de l'expérience d'étudiants qui souhaitent partager leur passion pour les matières enseignées.
+                            </div>
+                        </li>
+                    </ul>
+                    <!-- Ajout de la sélection ici -->
+                    <div class="selection-container">
+                        <span class="selection-point active" onclick="selectInterface('apprenant')">&#9679;</span>
+                        <span class="selection-point" onclick="selectInterface('enseignant')">&#9679;</span>
+                    </div>
+                </button>
+
+            
+            
+    </div>
+
+</body>
+<script>
+function selectInterface(type) {
+    document.querySelectorAll('.selection-container .selection-point').forEach(point => {
+        point.classList.remove('active');
+    });
+
+    if (type === 'apprenant') {
+        document.querySelector('.button_defil_apprenants').style.display = 'flex';
+        document.querySelector('.button_defil_enseignants').style.display = 'none';
+
+        document.querySelector('.button_defil_apprenants .selection-point:first-child').classList.add('active');
+    } else {
+        document.querySelector('.button_defil_apprenants').style.display = 'none';
+        document.querySelector('.button_defil_enseignants').style.display = 'flex';
+
+        document.querySelector('.button_defil_enseignants .selection-point:last-child').classList.add('active');
+    }
+}
+
+// Initialisation pour afficher par défaut l'interface apprenant
+selectInterface('apprenant');
+
+
+
+
+</script>
+</html>

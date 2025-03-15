@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TiSkol</title>
+    <link rel="stylesheet" href="styles_prendre.css">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <img src="logo_black.png" alt="Logo TiSkol" class="sidebar-logo">
+            <h1 class="sidebar-title">TiSkol</h1>
+        </div>
+
+        <div class="sidebar-button" onclick="window.location.href='accueil.html'">
+            <img src="logo_accueil_vide.png" alt="Icone 1" class="button-icon">
+            <span class="button-text">Accueil</span>
+        </div>
+        <div class="sidebar-button active">
+            <img src="logo_livre_plein.png" alt="Icone 2" class="button-icon">
+            <span class="button-text-select">Prendre des cours</span>
+        </div>
+        <div class="sidebar-button" onclick="window.location.href='donner.html'">
+            <img src="logo_suitcase_vide.png" alt="Icone 3" class="button-icon">
+            <span class="button-text">Donner des cours</span>
+        </div>
+        <div class="sidebar-button" onclick="window.location.href='contact.html'">
+            <img src="logo_contact_vide.png" alt="Icone 4" class="button-icon">
+            <span class="button-text">Contact</span>
+        </div>
+    </div>
+
+    <!-- Conteneur principal pour le titre de la page -->
+    <div class="page-content">
+        <h1 class="page-title">Trouvez votre enseignants</h1>
+        <p class="page-text">Sur TiSkol, trouve l'enseignant idéal pour t'accompagner dans ton apprentissage et atteindre tes objectifs !</p>
+        <div class="button-container">
+            <button class="page-button" onclick="window.location.href='donner.html'">
+                <img src="logo_livre_vide_blue.png" alt="Image 1" class="button-image">
+                <span class="buttons-text">Prendre des cours</span>
+                <div class="button-arrow"></div> <!-- La flèche est ici -->
+                <div class="additional-text">
+                    Prendre des cours avec TiSkol, c'est choisir un apprentissage personnalisé et flexible, adapté à vos besoins et à votre rythme.
+                </div>
+            </button>
+        </div>
+         
+            
+    </div>
+
+</body>
+</html>

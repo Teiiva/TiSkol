@@ -1,0 +1,676 @@
+/* Animation du titre (TiSkol) : Apparition en fondu */
+@keyframes fadeInTitle {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInRectangle {
+    0% {
+        opacity: 0;
+        transform: scale(0.8) translateY(20px); /* Commence un peu plus bas pour un effet de montée */
+    }
+    50% {
+        transform: scale(1.05) translateY(-10px); /* Légère élévation au milieu de l'animation */
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0); /* Position finale */
+    }
+}
+
+@keyframes fadeInImage {
+    0% {
+        opacity: 0;
+        transform: scale(0.8); /* Légère réduction pour un effet plus doux */
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Ajouter une animation pour faire apparaître le texte après 2 secondes */
+@keyframes fadeInText {
+    0% {
+        opacity: 0; /* Débute avec une opacité de 0 */
+        transform: translateY(20px); /* Commence légèrement plus bas */
+    }
+    100% {
+        opacity: 1; /* Devient complètement visible */
+        transform: translateY(0); /* Retourne à la position normale */
+    }
+}
+
+
+
+
+/* Chargement de la police Open Sauce depuis le dossier local */
+@font-face {
+    font-family: 'Open Sauce One';
+    src: url('fonts/OpenSauceOne-Regular.ttf') format('truetype'); /* Spécifie le chemin relatif vers le fichier */
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Open Sauce One';
+    src: url('fonts/OpenSauceOne-ExtraBold.ttf') format('truetype'); /* Spécifie le chemin relatif vers le fichier */
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Open Sauce One';
+    src: url('fonts/OpenSauceOne-Light.ttf') format('truetype'); /* Spécifie le chemin relatif vers le fichier */
+    font-weight: light;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Libre Baskerville';
+    src: url('fonts/LibreBaskerville-Italic.ttf') format('truetype'); /* Spécifie le chemin relatif vers le fichier */
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Esmeralda';
+    src: url('fonts\esmeraldagroterk-Regular.otf') format('opentype'); /* Spécifie le chemin relatif vers le fichier */
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url("fonts\Inter-VariableFont.ttf") format('truetype'); /* Spécifie le chemin relatif vers le fichier */
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
+body {
+    background-color: #f7f7f7;
+    font-family: 'Inter', normal;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    height: 100vh;
+    flex-direction: column; /* Ajouté pour que les éléments s'empilent verticalement */
+    transition: background-color 0.5s ease; /* Ajout d'une transition douce pour le changement de couleur */
+}
+
+.sidebar {
+    position: fixed;
+    left: 2%;
+    top: 2%;
+    height: 94%;
+    width: 300px;
+    background-color: white;
+    padding: 10px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    pointer-events: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ajoute une légère ombre pour le relief */
+}
+
+
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Aligne les éléments sur la gauche */
+    margin-bottom: 30px;
+}
+
+.sidebar-logo {
+    max-height: 100px; /* Ajuste la hauteur du logo */
+    object-fit: contain; /* Évite la déformation */
+}
+
+.sidebar-title {
+    font-weight: normal;
+    font-family: 'Inter', normal;
+    font-size: 40px; /* Taille du texte */
+    color: #000000; /* Couleur du texte */
+}
+
+/* Style de base pour les boutons */
+.sidebar-button {
+    display: flex;
+    align-items: center;
+    width: 70%;
+    padding: 10px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-left: 10%; /* Décale les boutons vers la droite */
+    position: relative; /* Nécessaire pour positionner la flèche */
+}
+
+/* Style au survol pour ajouter une flèche avec animation */
+.sidebar-button:hover {
+    background-color: #f7f7f7;
+}
+
+.sidebar-button:hover::after {
+    content: ''; /* Le contenu du pseudo-élément */
+    position: absolute;
+    right: 20px; /* Décale la flèche du bord droit */
+    top: 50%; /* Centrer verticalement */
+    transform: translateY(-50%) translateX(10px); /* Déplace la flèche légèrement vers la droite */
+    opacity: 1; /* Rendre la flèche visible */
+    width: 15px; /* Largeur de la flèche */
+    height: 15px; /* Hauteur de la flèche */
+    background-image: url('Arrow.png'); /* Chemin vers ton image PNG */
+    background-size: contain; /* Ajuste la taille de l'image pour qu'elle soit bien visible */
+    background-repeat: no-repeat; /* Évite que l'image se répète */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Ajoute la transition pour une animation fluide */
+}
+
+/* Transition pour rendre la flèche invisible quand il n'y a pas de survol */
+.sidebar-button::after {
+    content: '';
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%) translateX(0); /* Position initiale de la flèche */
+    opacity: 0; /* La flèche est invisible */
+    width: 15px;
+    height: 15px;
+    background-image: url('Arrow.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Transition pour l'animation */
+}
+
+.button-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 15px;
+}
+
+.button-text-select {
+    font-size: 10px;
+    font-family: 'Inter', normal;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+}
+
+.button-text {
+    font-size: 10px;
+    font-family: 'Inter', normal;
+    color: #4d4d4d;
+    text-decoration: none;
+}
+
+/* Style pour les icônes et les boutons */
+.sidebar-button span {
+    font-size: 14px;
+}
+
+/* Style pour le bouton actif avec le point */
+.sidebar-button.active {
+    background-color: #ffffff; /* Couleur de fond différente */
+    position: relative; /* Nécessaire pour positionner le point */
+}
+
+/* Le point est maintenant visible tout le temps pour le bouton actif */
+.sidebar-button.active::after {
+    content: ''; /* Le contenu du pseudo-élément */
+    position: absolute;
+    top: 50%;
+    right: 10px; /* Décale légèrement le point du bord droit */
+    transform: translateY(-50%); /* Centrer verticalement */
+    width: 4px; /* Taille du point */
+    height: 4px; /* Taille du point */
+    background-color: #000000; /* Couleur du point */
+    border-radius: 50%; /* Rend le point circulaire */
+    opacity: 1; /* Toujours visible */
+}
+
+/* Style pour le conteneur principal de la page */
+.page-content {
+    margin-left: 400px; /* Décale le contenu à droite de la sidebar */
+    padding: 20px; /* Ajoute un peu de marge autour du contenu */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Aligne tout le contenu à gauche */
+    justify-content: flex-start; /* Assure que le contenu commence en haut */
+    margin-top: 2%; /* Ajoute de l'espace en haut de la page */
+    height: 100%;
+}
+
+/* Style du titre de la page */
+.page-title {
+    font-family: 'Inter', normal;
+    font-weight: normal;
+    font-size: 40px;
+    color: #000;
+    margin: 0;
+    padding: 10px 0; /* Espacement autour du titre */
+    align-self: flex-start; /* Aligne le titre à gauche dans son conteneur */
+}
+
+/* Style du titre de la page */
+.page-subtitle {
+    font-family: 'Inter', normal;
+    font-weight: normal;
+    font-size: 32px;
+    color: #000;
+    margin: 0;
+    align-self: flex-start; /* Aligne le titre à gauche dans son conteneur */
+}
+
+/* Style pour le texte classique sous le titre */
+.page-text {
+    font-family: 'Inter', normal;
+    font-size: 16px; /* Taille du texte */
+    text-align: justify;
+    color: #4d4d4d; /* Couleur du texte, légèrement plus clair que le noir */
+    line-height: 1.6; /* Espacement entre les lignes pour plus de lisibilité */
+    margin-top: 10px; /* Espace entre le titre et le texte */
+    text-align: left; /* Aligne le texte à gauche */
+    width: 100%; /* Assure que le texte prend toute la largeur du conteneur */
+}
+
+.rectangle-text {
+    background-color: white; /* Fond blanc */
+    font-family: 'Inter', normal;
+    color: #4d4d4d; /* Couleur du texte, légèrement plus clair que le noir */
+    padding: 20px; /* Un peu de padding pour l'espacement interne */
+    border-radius: 8px; /* Bordures arrondies, facultatif */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ajoute une légère ombre pour le relief */
+    width: calc(100% - 80px); /* Largeur de 100% moins la marge gauche et droite */
+    margin-top: 20px; /* Ajoute de l'espace au-dessus */
+    margin-right: 40px; /* Marge de 20px à droite */
+    text-align: justify;
+}
+
+
+
+
+/* Conteneur des boutons côte à côte */
+.button-container {
+    display: flex; /* Utilise flexbox pour aligner les boutons côte à côte */
+    gap: 20px; /* Espacement entre les boutons */
+    margin-top: 20px; /* Ajoute un peu d'espace au-dessus des boutons */
+    margin-bottom: 0px; /* Ajoute un peu d'espace au-dessus des boutons */
+    margin-right: 20px; /* Ajoute un peu d'espace au-dessus des boutons */
+    width: calc(100% - 40px); /* Largeur de 100% moins la marge gauche et droite */
+}
+
+
+
+/* Style des boutons */
+.page-button {
+    height: 260px;
+    display: flex;
+    flex-direction: column; /* Aligne l'image et le texte verticalement */
+    justify-content: left; /* Centre les éléments dans le bouton */
+    align-items: left; /* Centre horizontalement */
+    background-color: #ffffff; /* Couleur de fond des boutons */
+    color: white; /* Couleur du texte */
+    font-family: 'Open Sauce One', sans-serif; /* Utilisation de la même police */
+    font-size: 14px; /* Taille du texte */
+    padding: 20px; /* Espacement interne du bouton */
+    border: none; /* Retirer la bordure par défaut */
+    border-radius: 8px; /* Bordures arrondies */
+    cursor: pointer; /* Curseur en forme de main au survol */
+    transition: background-color 0.3s ease; /* Transition pour la couleur de fond */
+    overflow: hidden; /* Pour s'assurer que le cercle ne déborde pas du bouton */
+    position: relative;
+    flex: 1; /* Fait en sorte que chaque bouton prenne une largeur égale */
+    text-align: left; /* Aligne le texte sous l'image */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ajoute une légère ombre pour le relief */
+}
+
+/* Ajout du cercle en arrière-plan */
+.page-button::before {
+    content: ''; /* Nécessaire pour afficher le pseudo-élément */
+    position: absolute; /* Positionne le cercle dans le bouton */
+    top: -50px;
+    left: -50px;
+    width: 264px; /* Largeur du cercle */
+    height: 264px; /* Hauteur du cercle */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.048), rgba(0, 0, 0, 0)); /* Dégradé du haut vers le bas */
+    border-radius: 50%; /* Rend l'élément circulaire */
+    z-index: 0; /* Assure que le cercle est derrière le contenu du bouton */
+    transition: background-color 0.3s ease opacity 0.3s ease, transform 0.3s ease; /* Transition pour la couleur du cercle */
+}
+
+
+/* Style pour l'image dans le bouton */
+.button-image {
+    width: 120px; /* Largeur de l'image */
+    height: 120px; /* Hauteur de l'image */
+    margin-bottom: 40px; /* Espace entre l'image et le texte */
+    margin-left: 10px;
+    z-index: 1; /* Assure que le cercle est derrière le contenu du bouton */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Transition pour l'animation */
+}
+
+
+
+/* Style pour le texte du bouton */
+.buttons-text {
+    margin-left: 15px;
+    font-size: 18px;
+    font-family: 'Inter', normal;
+    color: #000000;
+    text-decoration: none;
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Transition pour l'animation */
+}
+
+/* Style pour l'image de la flèche dans le bouton */
+.button-arrow {
+    width: 20px; /* Largeur de la flèche */
+    height: 20px; /* Hauteur de la flèche */
+    background-image: url('Arrow_up.png'); /* Image de la flèche */
+    background-size: contain; /* L'image s'ajuste à la taille de l'élément */
+    background-repeat: no-repeat; /* Empêche la répétition de l'image */
+    opacity: 1; /* La flèche est invisible par défaut */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Transition pour l'animation */
+    margin-top: -22px; /* Ajoute de l'espace entre le texte et la flèche */
+    margin-left: 90%; /* Ajoute de l'espace entre le texte et la flèche */
+}
+
+
+/* Effet sur l'image et le cercle au survol */
+.page-button:hover .button-image {
+    transform: scale(0.6) translateY(-40px) translateX(-20px); /* Réduit l'image à 90% de sa taille */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Transition pour l'apparition et le déplacement */
+    
+}
+
+/* Applique une transformation au cercle de fond au survol sans changer sa position */
+.page-button:hover::before {
+    transform: scale(0.7); /* Agrandit le cercle à 110% de sa taille */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Transition pour l'apparition et le déplacement */
+    top: -70px;
+    left: -70px;
+}
+
+/* Effet sur le texte et la flèche au survol */
+.page-button:hover .buttons-text {
+    transform: translateY(-40px); /* Fait monter le texte et la flèche de 10px */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Transition pour l'apparition et le déplacement */
+}
+
+
+.page-button:hover .button-arrow {
+    transform: translateY(-40px) rotate(180deg); /* Fait monter le texte et la flèche de 10px */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Transition pour l'apparition et le déplacement */
+}
+
+/* Nouveau texte qui apparaît au survol */
+.page-button:hover .additional-text {
+    opacity: 1; /* Rendre le texte visible */
+    transform: translateY(0); /* Le texte se déplace de son point d'origine */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Transition pour l'apparition et le déplacement */
+}
+
+/* Initial state of additional-text (before hover) */
+.additional-text {
+    margin-left: 16px;
+    opacity: 0; /* Le texte est invisible au départ */
+    transform: translateY(30px); /* Le texte commence légèrement en bas */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Transition pour l'apparition */
+    font-family: 'Inter', normal;
+    font-size: 14px; /* Taille du texte */
+    color: #4d4d4d; /* Couleur du texte, légèrement plus clair que le noir */
+
+    
+}
+
+/* Style pour les titres h2 dans les boîtes */
+.text-box h2 {
+    font-size: 18px;
+    color: #333; /* Couleur de texte pour le titre */
+    margin-bottom: 10px; /* Espacement entre le titre et le texte */
+}
+
+/* Autres styles restent inchangés */
+.text-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.text-box {
+    background-color: #ffffff;
+    color: #4d4d4d;
+    font-family: 'Inter', normal;
+    text-align: left;
+    padding: 20px;
+    transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out;
+    max-height: 20px;
+    display: flex;
+    flex-direction: column; /* Permet au titre et au texte de s'empiler verticalement */
+    justify-content: flex-start;
+    align-items: flex-start;
+    border-radius: 8px;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    text-align: justify;
+    overflow: hidden;
+    user-select: none;
+}
+
+
+/* Texte affiché par défaut remplacé par une flèche */
+.text-box::before {
+    content: ''; /* On enlève le texte */
+    position: absolute;
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+    right: 50px;
+    top: 50%; /* Centrer verticalement */
+    transform: translateY(-50%) rotate(180deg);
+    width: 20px; /* Ajustez la taille de la flèche */
+    height: 20px; 
+    background-image: url('Arrow_up.png'); /* Chemin vers l'image de flèche */
+    background-size: contain;
+    background-repeat: no-repeat;
+    user-select: none;
+}
+
+
+/* Texte caché à l'intérieur */
+.text-box p {
+    margin: 0;
+    opacity: 0;
+    max-height: 0;
+    transition: opacity 0.4s ease-in-out, max-height 0.5s ease-in-out;
+}
+
+/* Remplacement du texte "En savoir plus" par le vrai contenu */
+.text-box:hover::before {
+    opacity: 0;
+}
+
+/* Effet au survol */
+.text-box:hover {
+    max-height: 300px; /* Augmente la taille progressivement */
+    padding: 20px; /* Maintient une bonne lisibilité */
+}
+
+.text-box:hover p {
+    opacity: 1;
+    max-height: 300px;
+    transition-delay: 0.1s; /* Petit délai pour éviter une coupure brusque */
+}
+
+
+.container {
+    display: flex; /* Utilise flexbox pour aligner les boutons côte à côte */
+    gap: 20px; /* Espacement entre les boutons */
+    margin-top: 20px; /* Ajoute un peu d'espace au-dessus des boutons */
+    margin-right: 40px; /* Ajoute un peu d'espace au-dessus des boutons */
+    width: calc(100% - 40px); /* Largeur de 100% moins la marge gauche et droite */
+    height: 100%;
+}
+
+.left-section {
+    flex: 1; /* La section de gauche prend la moitié de l'espace */
+    display: flex;
+    flex-direction: column; /* Aligne les éléments verticalement */
+    order: 2; /* Déplace cette section vers la droite */
+}
+
+.right-section {
+    flex: 1; /* La section de droite prend l'autre moitié */
+    display: flex;
+    justify-content: center; /* Centre le bouton horizontalement */
+    align-items: center; /* Centre le bouton verticalement */
+    position: relative; /* Assure que le bouton peut être positionné indépendamment */
+    order: 1; /* Déplace cette section vers la gauche */
+}
+
+
+.button_defil {
+    padding: 20px 30px;
+    width: 100%;
+    height: 98%;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #ffffff; /* Couleur de fond du bouton */
+    color: white;
+    border: none;
+    border-radius: 8px; /* Coins arrondis */
+    transition: background-color 0.3s ease;
+    position: absolute; /* Position indépendante du texte */
+    top: 0;
+    display: flex;
+    flex-direction: column; /* Disposer les éléments verticalement */
+    justify-content: left; /* Centrer le contenu */
+    align-items: left; /* Centrer verticalement */
+    text-align: left; /* Centrer le texte */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.button-text-title {
+    font-family: 'Inter', normal;
+    font-size: 18px;
+    color: #4d4d4d; /* Couleur du titre */
+    margin-bottom: 10px; /* Espacement entre le titre et le texte */
+}
+
+.button-text {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.button-text li {
+    font-family: 'Inter', normal;
+    font-size: 16px;
+    line-height: 1.5;
+    display: flex;
+    flex-direction: column; /* Disposer le titre et la description en colonnes */
+    align-items: flex-start;
+    margin-bottom: 15px; /* Ajouter un espace entre les éléments de la liste */
+}
+
+.button-text li .icon {
+    font-family: 'Inter', normal;
+    font-size: 1.4rem;
+    margin-bottom: 5px; /* Espacement entre l'icône et le titre */
+}
+
+.button-text li strong {
+    font-family: 'Inter', normal;
+    font-weight: bold;
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 5px; /* Espacement entre le titre et la description */
+}
+
+.description {
+    font-family: 'Inter', normal;
+    font-size: 16px;
+    color: #666;
+    line-height: 1.4;
+    text-align: justify;
+}
+
+/* Container pour le slider */
+.slider-container {
+    position: relative;
+    max-width: 100%;
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+/* La ligne de slides */
+.slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out; /* Transition pour les déplacements */
+}
+
+/* Chaque slide */
+.slide {
+    min-width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* Contenu de chaque slide */
+.slide img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* Légende du slide */
+.slide-caption {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: #fff;
+    font-size: 24px;
+    font-family: 'Open Sauce One', sans-serif;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Flèches de navigation */
+button.prev, button.next {
+    position: absolute;
+    top: 50%;
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 30px;
+    transform: translateY(-50%);
+}
+
+button.prev {
+    left: 10px;
+}
+
+button.next {
+    right: 10px;
+}
+
+/* Effet au survol des boutons */
+button.prev:hover, button.next:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+

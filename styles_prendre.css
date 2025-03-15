@@ -283,81 +283,154 @@ body {
     width: 100%; /* Assure que le texte prend toute la largeur du conteneur */
 }
 
-.course-form {
-    width: 90%;
-    padding: 20px;
-    background-color: #f7f7f7;
-    border-radius: 8px;
-    margin-left: -20px;
-}
-
-.course-form label {
-    display: block; /* Place le label au-dessus du champ */
-    margin-top: 15px;
-    color: #888888;
-    font-weight: normal;
+.rectangle-text {
+    background-color: white; /* Fond blanc */
     font-family: 'Inter', normal;
+    color: #4d4d4d; /* Couleur du texte, légèrement plus clair que le noir */
+    padding: 20px; /* Un peu de padding pour l'espacement interne */
+    border-radius: 8px; /* Bordures arrondies, facultatif */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ajoute une légère ombre pour le relief */
+    width: calc(100% - 80px); /* Largeur de 100% moins la marge gauche et droite */
+    margin-top: 20px; /* Ajoute de l'espace au-dessus */
+    margin-right: 40px; /* Marge de 20px à droite */
+    text-align: justify;
 }
 
-.course-form input,
-.course-form select,
-.course-form textarea {
-    width: 100%; /* Tous les champs prennent la même largeur */
-    padding: 10px;
-    border: 1px solid  #e4e4e4;
-    border-radius: 5px;
-    font-size: 16px;
-    box-sizing: border-box; /* Empêche le padding de dépasser la largeur définie */
-    color: #999999;
-    background-color:#eeeeee;
-    font-weight: normal;
-    font-family: 'Inter', normal;
+
+
+
+/* Conteneur des boutons côte à côte */
+.button-container {
+    display: flex; /* Utilise flexbox pour aligner les boutons côte à côte */
+    gap: 20px; /* Espacement entre les boutons */
+    margin-top: 20px; /* Ajoute un peu d'espace au-dessus des boutons */
+    margin-bottom: 0px; /* Ajoute un peu d'espace au-dessus des boutons */
+    margin-right: 20px; /* Ajoute un peu d'espace au-dessus des boutons */
+    width: calc(100% - 40px); /* Largeur de 100% moins la marge gauche et droite */
 }
 
-.course-form textarea {
-    min-height: 100px;
-    resize: vertical;
+
+
+/* Style des boutons */
+.page-button {
+    height: 260px;
+    display: flex;
+    flex-direction: column; /* Aligne l'image et le texte verticalement */
+    justify-content: left; /* Centre les éléments dans le bouton */
+    align-items: left; /* Centre horizontalement */
+    background-color: #ffffff; /* Couleur de fond des boutons */
+    color: white; /* Couleur du texte */
+    font-family: 'Open Sauce One', sans-serif; /* Utilisation de la même police */
+    font-size: 14px; /* Taille du texte */
+    padding: 20px; /* Espacement interne du bouton */
+    border: none; /* Retirer la bordure par défaut */
+    border-radius: 8px; /* Bordures arrondies */
+    cursor: pointer; /* Curseur en forme de main au survol */
+    transition: background-color 0.3s ease; /* Transition pour la couleur de fond */
+    overflow: hidden; /* Pour s'assurer que le cercle ne déborde pas du bouton */
+    position: relative;
+    flex: 1; /* Fait en sorte que chaque bouton prenne une largeur égale */
+    text-align: left; /* Aligne le texte sous l'image */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ajoute une légère ombre pour le relief */
 }
 
-.course-form button {
-    width: 100%;
-    padding: 12px;
-    margin-top: 15px;
-    border: none;
-    border-radius: 5px;
-    background-color: #333333;
-    color: #eeeeee;
+/* Ajout du cercle en arrière-plan */
+.page-button::before {
+    content: ''; /* Nécessaire pour afficher le pseudo-élément */
+    position: absolute; /* Positionne le cercle dans le bouton */
+    top: -50px;
+    left: -50px;
+    width: 264px; /* Largeur du cercle */
+    height: 264px; /* Hauteur du cercle */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.048), rgba(0, 0, 0, 0)); /* Dégradé du haut vers le bas */
+    border-radius: 50%; /* Rend l'élément circulaire */
+    z-index: 0; /* Assure que le cercle est derrière le contenu du bouton */
+    transition: background-color 0.3s ease opacity 0.3s ease, transform 0.3s ease; /* Transition pour la couleur du cercle */
+}
+
+
+/* Style pour l'image dans le bouton */
+.button-image {
+    width: 120px; /* Largeur de l'image */
+    height: 120px; /* Hauteur de l'image */
+    margin-bottom: 40px; /* Espace entre l'image et le texte */
+    margin-left: 10px;
+    z-index: 1; /* Assure que le cercle est derrière le contenu du bouton */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Transition pour l'animation */
+}
+
+
+
+/* Style pour le texte du bouton */
+.buttons-text {
+    margin-left: 15px;
     font-size: 18px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    font-weight: bold;
     font-family: 'Inter', normal;
+    color: #000000;
+    text-decoration: none;
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Transition pour l'animation */
 }
 
-.course-form button:hover {
-    background-color: #464646;
-}
-
-/* Style général des placeholders */
-.course-form input::placeholder,
-.course-form textarea::placeholder {
-    color: #aaa;
-}
-
-/* Pour select : texte grisé pour l'option par défaut */
-.course-form select:invalid {
-    color: #aaa;
-}
-
-
-
-
-/* Empêcher la sélection de l'option par défaut */
-.course-form select option[disabled] {
-    display: none;
+/* Style pour l'image de la flèche dans le bouton */
+.button-arrow {
+    width: 20px; /* Largeur de la flèche */
+    height: 20px; /* Hauteur de la flèche */
+    background-image: url('Arrow_up.png'); /* Image de la flèche */
+    background-size: contain; /* L'image s'ajuste à la taille de l'élément */
+    background-repeat: no-repeat; /* Empêche la répétition de l'image */
+    opacity: 1; /* La flèche est invisible par défaut */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Transition pour l'animation */
+    margin-top: -22px; /* Ajoute de l'espace entre le texte et la flèche */
+    margin-left: 90%; /* Ajoute de l'espace entre le texte et la flèche */
 }
 
 
+/* Effet sur l'image et le cercle au survol */
+.page-button:hover .button-image {
+    transform: scale(0.6) translateY(-40px) translateX(-20px); /* Réduit l'image à 90% de sa taille */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Transition pour l'apparition et le déplacement */
+    
+}
+
+/* Applique une transformation au cercle de fond au survol sans changer sa position */
+.page-button:hover::before {
+    transform: scale(0.7); /* Agrandit le cercle à 110% de sa taille */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Transition pour l'apparition et le déplacement */
+    top: -70px;
+    left: -70px;
+}
+
+/* Effet sur le texte et la flèche au survol */
+.page-button:hover .buttons-text {
+    transform: translateY(-40px); /* Fait monter le texte et la flèche de 10px */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Transition pour l'apparition et le déplacement */
+}
+
+
+.page-button:hover .button-arrow {
+    transform: translateY(-40px) rotate(180deg); /* Fait monter le texte et la flèche de 10px */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Transition pour l'apparition et le déplacement */
+}
+
+/* Nouveau texte qui apparaît au survol */
+.page-button:hover .additional-text {
+    opacity: 1; /* Rendre le texte visible */
+    transform: translateY(0); /* Le texte se déplace de son point d'origine */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Transition pour l'apparition et le déplacement */
+}
+
+/* Initial state of additional-text (before hover) */
+.additional-text {
+    margin-left: 16px;
+    opacity: 0; /* Le texte est invisible au départ */
+    transform: translateY(30px); /* Le texte commence légèrement en bas */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Transition pour l'apparition */
+    font-family: 'Inter', normal;
+    font-size: 14px; /* Taille du texte */
+    color: #4d4d4d; /* Couleur du texte, légèrement plus clair que le noir */
+
+    
+}
 
 
 

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TiSkol - Donner des cours</title>
+    <link rel="stylesheet" href="styles_contact.css">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <img src="logo_black.png" alt="Logo TiSkol" class="sidebar-logo">
+            <h1 class="sidebar-title">TiSkol</h1>
+        </div>
+
+        <div class="sidebar-button" onclick="window.location.href='accueil.html'">
+            <img src="logo_accueil_vide.png" alt="Icone 1" class="button-icon">
+            <span class="button-text">Accueil</span>
+        </div>
+        <div class="sidebar-button" onclick="window.location.href='prendre.html'">
+            <img src="logo_livre_vide.png" alt="Icone 2" class="button-icon">
+            <span class="button-text">Prendre des cours</span>
+        </div>
+        <div class="sidebar-button" onclick="window.location.href='donner.html'">
+            <img src="logo_suitcase_vide.png" alt="Icone 3" class="button-icon">
+            <span class="button-text">Donner des cours</span>
+        </div>
+        <div class="sidebar-button active">
+            <img src="logo_contact_plein.png" alt="Icone 4" class="button-icon">
+            <span class="button-text-select">Contact</span>
+        </div>
+    </div>
+
+    <div class="page-content">
+        <h1 class="page-title">Nous Contacter</h1>
+        <p class="page-text">Vous avez des questions ou besoin d'informations supplémentaires ? Remplissez le formulaire ci-dessous et nous vous répondrons dans les plus brefs délais.</p>
+        
+        <form action="https://formspree.io/f/xblgldpp" class="course-form" method="POST">
+            <label for="name">Nom</label><br>
+            <input type="text" id="name" name="name" placeholder="Votre nom" required><br><br>
+
+            <label for="email">Email</label><br>
+            <input type="email" id="email" name="email" placeholder="Votre email" required><br><br>
+
+            <label for="subject">Sujet</label><br>
+            <input type="text" id="subject" name="subject" placeholder="Sujet de votre message" required><br><br>
+
+            <label for="message">Message</label><br>
+            <textarea id="message" name="message" placeholder="Votre message" required></textarea><br><br>
+
+            <button type="submit">Envoyer</button>
+        </form>
+        
+    </div>
+</body>
+</html>

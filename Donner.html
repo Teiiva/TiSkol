@@ -3,244 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tiskol - Cours Particuliers</title>
+    <title>TiSkol - Donner des cours</title>
     <link rel="stylesheet" href="styles_donner.css">
 </head>
 <body>
-    <div class="rectangle">
-        <div class="left-icon-container">
-            <div class="icon plus">×</div>
-            <div class="icon plus">+</div>
-            <div class="icon minus">−</div>
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <img src="logo_black.png" alt="Logo TiSkol" class="sidebar-logo">
+            <h1 class="sidebar-title">TiSkol</h1>
         </div>
-        <div class="left-column">
-            <section class="formulaire">
-                <form id="coursFormleft" action="" method="post">
-                    <div class="champ">
-                        <label for="nom">Nom complet :</label>
-                        <br class="small-break">
-                        <input type="text" id="nom" name="nom" required placeholder="Votre nom complet">
-                        <hr> <!-- Ligne après le label -->
-                        <br>
-                    </div>        
-                    <div class="champ">
-                        <label for="matiere">Matières proposées :</label>
-                        <br class="small-break">
-                        <select id="matiere" name="matiere" required>
-                            <option value="">Sélectionnez une matière</option>
-                            <option value="maths">Mathématiques</option>
-                            <option value="francais">Français</option>
-                            <option value="physique">Physique</option>
-                            <option value="anglais">Anglais</option>
-                            <option value="informatique">Informatique</option>
-                            <option value="histoire">Histoire</option>
-                        </select>
-                        <hr> <!-- Ligne après le label -->
-                        <br>
-                    </div>
-        
-                    <div class="champ">
-                        <label for="niveau">Niveau d'enseignement :</label>
-                        <br class="small-break">
-                        <select id="niveau" name="niveau" required>
-                            <option value="">Sélectionnez un niveau</option>
-                            <option value="primaire">Primaire</option>
-                            <option value="college">Collège</option>
-                            <option value="lycee">Lycée</option>
-                            <option value="universitaire">Universitaire</option>
-                        </select>
-                        <hr> <!-- Ligne après le label -->
-                        <br>
-                    </div>
-        
-                    <div class="champ">
-                        <label for="tarif">Tarif horaire (€) :</label>
-                        <br class="small-break">
-                        <input type="number" id="tarif" name="tarif" required step="0.01" min="0" placeholder="Ex : 25€">
-                        <hr> <!-- Ligne après le label -->
-                        <br>
-                    </div>
-        
-                    <div class="champ">
-                        <label for="disponibilites">Disponibilités :</label>
-                        <br class="small-break">
-                        <textarea id="disponibilites" name="disponibilites" required placeholder="Ex : Lundi, Mercredi et Vendredi après-midi"></textarea>
-                        <hr> <!-- Ligne après le label -->
-                        <br>
-                    </div>
-        
-                    <div class="champ">
-                        <label for="description">Commentaire sur votre profil :</label>
-                        <br class="small-break">
-                        <textarea id="description" name="description" required placeholder="Présentez vous"></textarea>
-                        <hr> <!-- Ligne après le label -->
-                        <br>
-                    </div>
-        
-                    
-                </form>
-            </section>
+
+        <div class="sidebar-button" onclick="window.location.href='accueil.html'">
+            <img src="logo_accueil_vide.png" alt="Icone 1" class="button-icon">
+            <span class="button-text">Accueil</span>
         </div>
-        <div class="right-column">
-            <form id="coursFormright" action="" method="post">
-                <div class="champ">
-                    <label for="contact">Email de contact :</label>
-                    <br class="small-break">
-                    <input type="email" id="contact" name="contact" required placeholder="Votre adresse email">
-                    <hr> <!-- Ligne après le label -->
-                    <br>
-                </div>
-    
-                <div class="champ">
-                    <label for="telephone">Numéro de téléphone :</label>
-                    <br class="small-break">
-                    <input type="tel" id="telephone" name="telephone" placeholder="Votre numéro">
-                    <hr> <!-- Ligne après le label -->
-                    <br>
-                </div>
-    
-                <div class="champ">
-                    <label for="disponible_en_ligne">Disponible pour des cours en ligne ?</label>
-                    <input type="checkbox" id="disponible_en_ligne" name="disponible_en_ligne">
-                    <br class="small-break">
-                    <hr> <!-- Ligne après le label -->
-                    <br>
-                </div>
-            </form>
-            <div class="dropzone" id="dropzone">
-                <p>Glissez et déposez votre photo de profil ici</p>
-                <input type="file" id="fileInput" style="display:none;" />
-                <button type="button" id="deleteButton" style="display:none;">Supprimer la photo</button>
-            </div>
+        <div class="sidebar-button" onclick="window.location.href='prendre.html'">
+            <img src="logo_livre_vide.png" alt="Icone 2" class="button-icon">
+            <span class="button-text">Prendre des cours</span>
+        </div>
+        <div class="sidebar-button active">
+            <img src="logo_suitcase_plein.png" alt="Icone 3" class="button-icon">
+            <span class="button-text-select">Donner des cours</span>
+        </div>
+        <div class="sidebar-button" onclick="window.location.href='contact.html'">
+            <img src="logo_contact_vide.png" alt="Icone 4" class="button-icon">
+            <span class="button-text">Contact</span>
+        </div>
+    </div>
+
+    <div class="page-content">
+        <h1 class="page-title">Donner des cours</h1>
+        <p class="page-text">Enseigner sur TiSkol, c'est transmettre vos connaissances tout en améliorant vos habiletés pédagogiques dans un cadre stimulant et adaptable.</p>
+        
+        <!-- Formulaire d'inscription pour donner des cours -->
+        <form action="https://formspree.io/f/xldjdgwq" method="POST" class="course-form">
+            <label for="name">Nom</label><br>
+            <input type="text" id="name" name="name" placeholder="Nom Prénom" required><br>
+
+            <label for="age">Age</label><br>
+            <input type="text" id="Age" name="name" placeholder="xx ans" required><br>
+
+            <label for="sexe">Sexe</label><br>
+            <select id="sexe" name="sexe" required>
+                <option value="Homme">Homme</option>
+                <option value="Femme">Femme</option>
+                <option value="autre">ne souhaite pas préciser</option>
+            </select><br>
+
+            <label for="phone">Numéro de téléphone</label><br>
+            <input type="tel" id="phone" name="phone" placeholder="XX XX XX XX XX" required maxlength="14"><br>
+            <script>
+                document.getElementById("phone").addEventListener("input", function (e) {
+                    let value = e.target.value.replace(/\D/g, ""); // Supprime tout sauf les chiffres
+                    let formattedValue = value.match(/.{1,2}/g)?.join(" ") || ""; // Regroupe par 2
+                    e.target.value = formattedValue;
+                });
+                </script>
+
+            <label for="email">Email</label><br>
+            <input type="email" id="email" name="email" placeholder="@" required><br>
+
+            <label for="subject">Matière proposée</label><br>
+            <select id="subject" name="subject" required>
+                <option value="maths">Mathématiques</option>
+                <option value="francais">Français</option>
+                <option value="anglais">Anglais</option>
+                <option value="physique">Physique</option>
+                <option value="informatique">Informatique</option>
+            </select><br>
+
+            <label for="level">Niveau d'enseignement</label><br>
+            <select id="level" name="level" required>
+                <option value="primaire">Primaire</option>
+                <option value="college">Collège</option>
+                <option value="lycee">Lycée</option>
+                <option value="universite">Université</option>
+            </select><br>
+
+            <label for="rate">Tarif horaire (€)</label><br>
+            <input type="number" id="rate" name="rate" min="0" placeholder="Ex : 25€" required><br>
+
+            <label for="profile">Commentaire sur votre profil</label><br>
+            <textarea id="profile" name="profile" required></textarea><br>
             
-        </div>
-    </div>
-    <div class="buttons-container">
-        <button id="retour">Retour</button>
-        <button id="soumettre">Soumettre</button>
-    </div>
 
-    <script>
-        const dropzone = document.querySelector('.dropzone');
-        const fileInput = document.querySelector('#fileInput');
-        const deleteButton = document.querySelector('#deleteButton');
-        let selectedFile = null;  // Pour garder la référence à l'image sélectionnée
-
-        // Empêcher le comportement par défaut lors du glissement
-        dropzone.addEventListener('dragover', (event) => {
-            event.preventDefault();
-            dropzone.classList.add('dragover');
-        });
-
-        // Supprimer l'effet de survol
-        dropzone.addEventListener('dragleave', () => {
-            dropzone.classList.remove('dragover');
-        });
-
-        // Gestion du dépôt de fichier
-        dropzone.addEventListener('drop', (event) => {
-            event.preventDefault();
-            dropzone.classList.remove('dragover');
-
-            const files = event.dataTransfer.files;
-            if (files.length > 0) {
-                selectedFile = files[0];
-                updatePhotoPreview();
-            }
-        });
-
-        // Ouvrir le sélecteur de fichiers
-        dropzone.addEventListener('click', () => {
-            fileInput.click();
-        });
-
-        // Lorsque l'utilisateur sélectionne un fichier via l'input
-        fileInput.addEventListener('change', (event) => {
-            const files = event.target.files;
-            if (files.length > 0) {
-                selectedFile = files[0];
-                updatePhotoPreview();
-            }
-        });
-
-        // Fonction pour mettre à jour l'aperçu de la photo et afficher le bouton de suppression
-        function updatePhotoPreview() {
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                const imgPreview = document.createElement('img');
-                imgPreview.src = e.target.result;
-                imgPreview.alt = 'Aperçu de la photo';
-
-                // Afficher l'image et le bouton de suppression
-                dropzone.innerHTML = ''; // Effacer le texte
-                dropzone.appendChild(imgPreview);
-                dropzone.appendChild(deleteButton);
-                deleteButton.style.display = 'inline-block'; // Afficher le bouton
-            };
-            reader.readAsDataURL(selectedFile);
-        }
-
-        // Gérer le bouton de suppression
-        deleteButton.addEventListener('click', () => {
-            selectedFile = null; // Réinitialiser la photo sélectionnée
-            dropzone.innerHTML = '<p>Glissez et déposez votre photo de profil ici</p>'; // Réinitialiser la zone de dépôt
-            dropzone.appendChild(fileInput); // Réajouter l'input caché
-            deleteButton.style.display = 'none'; // Cacher le bouton de suppression
-        });
-
-        // Fonction pour changer le contenu HTML lorsqu'on clique sur "Retour"
-        document.getElementById('retour').addEventListener('click', function() {
-    
-                window.location.href = 'index.html'; // Remplacez 'nouvelle-page.html' par le nom de votre fichier HTML
-        });
-
-        document.getElementById('soumettre').addEventListener('click', function(event) {
-            event.preventDefault(); // Empêche l'envoi du formulaire
-
-            // Collecter les données du formulaire de la section gauche
-            const formDataleft = new FormData(document.getElementById('coursFormleft'));
-            formDataleft.append('nom', document.getElementById('nom').value);
-            formDataleft.append('matiere', document.getElementById('matiere').value);
-            formDataleft.append('niveau', document.getElementById('niveau').value);
-            formDataleft.append('tarif', document.getElementById('tarif').value);
-            formDataleft.append('disponibilites', document.getElementById('disponibilites').value);
-            formDataleft.append('description', document.getElementById('description').value);
-
-            // Convertir les données en JSON
-            let jsonDataleft = {};
-            formDataleft.forEach((value, key) => {
-                jsonDataleft[key] = value;
-            });
-
-            // Collecter les données du formulaire de la section droite
-            const formDataright = new FormData(document.getElementById('coursFormright'));
-            formDataright.append('contact', document.getElementById('contact').value);
-            formDataright.append('telephone', document.getElementById('telephone').value);
-            formDataright.append('disponible_en_ligne', document.getElementById('disponible_en_ligne').checked);
-
-            // Convertir les données en JSON
-            let jsonDataright = {};
-            formDataright.forEach((value, key) => {
-                jsonDataright[key] = value;
-            });
-
-            // Combiner les données des deux formulaires en un seul objet
-            const jsonData = { ...jsonDataleft, ...jsonDataright };
-
-            // Afficher les données en console (pour les tests)
-            console.log(jsonData);
-
-            fetch('https://api.github.com/repos/Teiiva/TiSkol')
-                .then(response => response.json())
-                .then(data => console.log(data))
-                .catch(error => console.error('Erreur:', error));
-
-                        });
-
-
-
+            <button type="submit">Envoyer</button>
+        </form>
         
-    </script>
-    
+    </div>
 </body>
 </html>
