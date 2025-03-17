@@ -77,12 +77,6 @@
     font-style: normal;
 }
 
-@font-face {
-    font-family: 'Esmeralda';
-    src: url('fonts/esmeraldagroterk-Regular.otf') format('opentype'); /* Spécifie le chemin relatif vers le fichier */
-    font-weight: normal;
-    font-style: normal;
-}
 
 
 body {
