@@ -151,7 +151,6 @@ body {
     border: 1px solid black;
     background-color: #f4f4f4; /* Couleur de fond des cercles */
     border-radius: 50%; /* Rendre les icônes circulaires */
-    font-family: 'Esmeralda', sans-serif;
     font-size: 12px; /* Taille des icônes */
     color: black;
     user-select: none; /* Empêche la sélection de texte */
