@@ -88,7 +88,7 @@
 
 @font-face {
     font-family: 'Inter';
-    src: url("fonts\Inter-VariableFont.ttf") format('truetype'); /* Spécifie le chemin relatif vers le fichier */
+    src: url("fonts\Inter-Regular.otf") format('opentype'); /* Spécifie le chemin relatif vers le fichier */
     font-weight: normal;
     font-style: normal;
 }
@@ -655,8 +655,9 @@ a.icone-francais:hover {
     border-radius: 10px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     width: auto; /* Taille ajustable */
-    height: 270px;
+    height: 230px;
     border-radius: 10px;
+    padding: 20px;
 }
 
 /* Informations de l'enseignant */
