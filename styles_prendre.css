@@ -301,8 +301,7 @@ body {
 
 /* Conteneur des boutons côte à côte */
 .button-container {
-    display: flex; /* Utilise flexbox pour aligner les boutons côte à côte */
-    gap: 20px; /* Espacement entre les boutons */
+    display: block; 
     margin-top: 20px; /* Ajoute un peu d'espace au-dessus des boutons */
     margin-bottom: 0px; /* Ajoute un peu d'espace au-dessus des boutons */
     margin-right: 20px; /* Ajoute un peu d'espace au-dessus des boutons */
@@ -314,10 +313,11 @@ body {
 /* Style des boutons */
 .page-button {
     height: 260px;
+    width: 100%;
     display: flex;
-    flex-direction: column; /* Aligne l'image et le texte verticalement */
+    flex-direction: row; /* Aligne l'image et le texte verticalement */
     justify-content: left; /* Centre les éléments dans le bouton */
-    align-items: left; /* Centre horizontalement */
+    align-items: stretch; /* Centre horizontalement */
     background-color: #ffffff; /* Couleur de fond des boutons */
     color: white; /* Couleur du texte */
     font-family: 'Open Sauce One', sans-serif; /* Utilisation de la même police */
@@ -334,104 +334,416 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ajoute une légère ombre pour le relief */
 }
 
-/* Ajout du cercle en arrière-plan */
-.page-button::before {
-    content: ''; /* Nécessaire pour afficher le pseudo-élément */
-    position: absolute; /* Positionne le cercle dans le bouton */
-    top: -50px;
-    left: -50px;
-    width: 264px; /* Largeur du cercle */
-    height: 264px; /* Hauteur du cercle */
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.048), rgba(0, 0, 0, 0)); /* Dégradé du haut vers le bas */
-    border-radius: 50%; /* Rend l'élément circulaire */
-    z-index: 0; /* Assure que le cercle est derrière le contenu du bouton */
-    transition: background-color 0.3s ease opacity 0.3s ease, transform 0.3s ease; /* Transition pour la couleur du cercle */
-}
 
-
-/* Style pour l'image dans le bouton */
 .button-image {
-    width: 120px; /* Largeur de l'image */
-    height: 120px; /* Hauteur de l'image */
-    margin-bottom: 40px; /* Espace entre l'image et le texte */
-    margin-left: 10px;
-    z-index: 1; /* Assure que le cercle est derrière le contenu du bouton */
-    transition: opacity 0.3s ease, transform 0.3s ease; /* Transition pour l'animation */
+    height: 220px;
+    width: 220px; /* Conserve les proportions de l'image */
+    object-fit: cover; /* Ajuste l'image pour couvrir la hauteur */
+    border-radius: 8px; /* Bordures arrondies */
+    margin: 0px 0px 20px 0px; /* Annule l'effet du padding à gauche */
 }
 
 
 
 /* Style pour le texte du bouton */
 .buttons-text {
-    margin-left: 15px;
+    margin-left: 50%;
     font-size: 18px;
     font-family: 'Inter', normal;
     color: #000000;
-    text-decoration: none;
     transition: opacity 0.3s ease, transform 0.3s ease; /* Transition pour l'animation */
 }
 
-/* Style pour l'image de la flèche dans le bouton */
-.button-arrow {
-    width: 20px; /* Largeur de la flèche */
-    height: 20px; /* Hauteur de la flèche */
-    background-image: url('Arrow_up.png'); /* Image de la flèche */
-    background-size: contain; /* L'image s'ajuste à la taille de l'élément */
-    background-repeat: no-repeat; /* Empêche la répétition de l'image */
-    opacity: 1; /* La flèche est invisible par défaut */
-    transition: opacity 0.3s ease, transform 0.3s ease; /* Transition pour l'animation */
-    margin-top: -22px; /* Ajoute de l'espace entre le texte et la flèche */
-    margin-left: 90%; /* Ajoute de l'espace entre le texte et la flèche */
+
+
+/* Icônes PNG */
+.icon {
+    width: 50px; /* Taille des icônes */
+    height: 50px;
 }
 
-
-/* Effet sur l'image et le cercle au survol */
-.page-button:hover .button-image {
-    transform: scale(0.6) translateY(-40px) translateX(-20px); /* Réduit l'image à 90% de sa taille */
-    transition: opacity 0.3s ease, transform 0.3s ease; /* Transition pour l'apparition et le déplacement */
-    
-}
-
-/* Applique une transformation au cercle de fond au survol sans changer sa position */
-.page-button:hover::before {
-    transform: scale(0.7); /* Agrandit le cercle à 110% de sa taille */
-    transition: opacity 0.3s ease, transform 0.3s ease; /* Transition pour l'apparition et le déplacement */
-    top: -70px;
-    left: -70px;
-}
-
-/* Effet sur le texte et la flèche au survol */
-.page-button:hover .buttons-text {
-    transform: translateY(-40px); /* Fait monter le texte et la flèche de 10px */
-    transition: opacity 0.3s ease, transform 0.3s ease; /* Transition pour l'apparition et le déplacement */
-}
-
-
-.page-button:hover .button-arrow {
-    transform: translateY(-40px) rotate(180deg); /* Fait monter le texte et la flèche de 10px */
-    transition: opacity 0.3s ease, transform 0.3s ease; /* Transition pour l'apparition et le déplacement */
-}
-
-/* Nouveau texte qui apparaît au survol */
-.page-button:hover .additional-text {
-    opacity: 1; /* Rendre le texte visible */
-    transform: translateY(0); /* Le texte se déplace de son point d'origine */
-    transition: opacity 0.3s ease, transform 0.3s ease; /* Transition pour l'apparition et le déplacement */
-}
-
-/* Initial state of additional-text (before hover) */
-.additional-text {
-    margin-left: 16px;
-    opacity: 0; /* Le texte est invisible au départ */
-    transform: translateY(30px); /* Le texte commence légèrement en bas */
-    transition: opacity 0.3s ease, transform 0.3s ease; /* Transition pour l'apparition */
+.annonces-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    margin-top: 20px;
+    margin-left: -10px;
     font-family: 'Inter', normal;
-    font-size: 14px; /* Taille du texte */
-    color: #4d4d4d; /* Couleur du texte, légèrement plus clair que le noir */
+}
 
-    
+.annonce-card {
+    width: 280px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    text-align: center;
+    position: relative;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 20px;
 }
 
 
+
+
+.annonce-photo {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.annonce-matiere {
+    width: 40px;
+    position: center;
+    bottom: 10px;
+    margin-bottom: 5px;
+}
+
+.annonce-info {
+    margin-top: 10px;
+}
+
+.annonce-info h2 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.annonce-info p {
+    font-size: 14px;
+    color: #555;
+}
+
+/* Conteneur de l'annonce avec le rectangle */
+.enseignant-photo-container {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-right: 40px;
+    font-family: 'Inter', normal;
+}
+
+
+.enseignant-photo img {
+    width: 200px;
+    height: 250px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.enseignant-info {
+    flex: 1;
+    margin-left: 20px;
+    font-family: 'Inter', normal;
+}
+
+.enseignant-info h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    font-family: 'Inter', normal;
+}
+
+.enseignant-age, .enseignant-description, .enseignant-matiere, .enseignant-tarif, .enseignant-date {
+    font-size: 18px;
+    margin-bottom: 10px;
+    font-family: 'Inter', normal;
+    text-align: justify;
+}
+
+.contact-button {
+    padding: 10px 20px;
+    font-size: 1em;
+    background-color: #5c6bc0;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.contact-button:hover {
+    background-color: #3f4d8d;
+}
+
+/* Section Portfolio */
+.enseignant-portfolio {
+    margin-top: 40px;
+}
+
+.enseignant-portfolio ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.enseignant-portfolio li {
+    margin-bottom: 8px;
+    font-size: 1.1em;
+}
+
+.course-form {
+    display: none;
+    width: calc(100% - 40px);
+    padding: 20px;
+    background-color: #f7f7f7;
+    border-radius: 8px;
+    margin-left: -20px;
+    
+}
+
+.course-form label {
+    display: block; /* Place le label au-dessus du champ */
+    margin-top: 15px;
+    color: #888888;
+    font-weight: normal;
+    font-family: 'Inter', normal;
+}
+
+.course-form input,
+.course-form select,
+.course-form textarea {
+    width: 100%; /* Tous les champs prennent la même largeur */
+    padding: 10px;
+    border: 1px solid  #e4e4e4;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box; /* Empêche le padding de dépasser la largeur définie */
+    color: #999999;
+    background-color:#eeeeee;
+    font-weight: normal;
+    font-family: 'Inter', normal;
+}
+
+.course-form textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.course-form button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 50px;
+    border: none;
+    border-radius: 5px;
+    background-color: #333333;
+    color: #eeeeee;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-weight: bold;
+    font-family: 'Inter', normal;
+}
+
+.course-form button:hover {
+    background-color: #464646;
+}
+
+/* Style général des placeholders */
+.course-form input::placeholder,
+.course-form textarea::placeholder {
+    color: #aaa;
+}
+
+/* Pour select : texte grisé pour l'option par défaut */
+.course-form select:invalid {
+    color: #aaa;
+}
+
+
+
+
+/* Empêcher la sélection de l'option par défaut */
+.course-form select option[disabled] {
+    display: none;
+}
+
+button {
+    width: calc(100% - 40px); /* Réduit la largeur de 40px à droite */
+    padding: 12px;
+    margin-top: 15px;
+    margin-right: 40px; /* Ajoute un espace de 40px à droite */
+    border: none;
+    border-radius: 5px;
+    background-color: #333333;
+    color: #eeeeee;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-weight: bold;
+    font-family: 'Inter', normal;
+}
+
+
+button:hover {
+    filter: brightness(1.2);
+}
+
+/* Enlever les styles par défaut des liens */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Survol pour les annonces avec icone-physique */
+a.icone-physique:hover {
+    color: #fb8c00;  /* Couleur spécifique pour physique */
+}
+
+
+
+/* Survol pour les annonces avec icone-maths */
+a.icone-maths:hover {
+    color: #1e88e5;  /* Couleur spécifique pour mathématiques */
+}
+
+
+
+/* Survol pour les annonces avec icone-informatique */
+a.icone-informatique:hover {
+    color: #43a047;  /* Couleur spécifique pour informatique */
+}
+
+
+
+/* Survol pour les annonces avec icone-anglais */
+a.icone-anglais:hover {
+    color: #5e35b1;  /* Couleur spécifique pour anglais */
+}
+
+
+/* Survol pour les annonces avec icone-francais */
+a.icone-francais:hover {
+    color: #e30000;  /* Couleur spécifique pour français */
+}
+
+
+
+/* Ajouter d'autres icônes avec leurs couleurs spécifiques si nécessaire */
+
+
+
+
+
+
+
+
+
+/* Conteneur principal pour la photo et les détails */
+.enseignant-container {
+    display: flex;
+    align-items: center; /* Centre verticalement */
+    gap: 20px; /* Espace entre la photo et les infos */
+    width:calc(100% - 40px);
+    margin-bottom: 20px;
+}
+
+/* Style de la photo */
+.enseignant-photo img {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: auto; /* Taille ajustable */
+    height: 270px;
+    border-radius: 10px;
+}
+
+/* Style de la photo */
+.enseignant-icone img {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: auto; /* Taille ajustable */
+    height: 270px;
+    border-radius: 10px;
+}
+
+/* Informations de l'enseignant */
+.enseignant-detail {
+    height: 230px;
+    width:100%;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Description placée en dessous */
+.enseignant-description {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+    font-size: 16px;
+    width:calc(100% - 80px);
+    line-height: 1.5;
+}
+
+
+
+
+
+/* Conteneur de l'annonce avec le rectangle */
+.enseignant-description-container {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-right: 40px;
+    font-family: 'Inter', normal;
+}
+
+
+
+/* Style général du formulaire de recherche */
+.search-container {
+    display: flex;                /* Utilisation de flexbox pour aligner les éléments */
+    align-items: center;          /* Aligne les éléments au centre sur la ligne */
+    gap: 20px;                    /* Espace entre les éléments */
+    margin-bottom: 20px;          /* Marge sous le formulaire */
+    margin-top: 20px;
+}
+
+.search-container input, 
+.search-container select {
+    padding: 10px;                /* Ajout de padding pour un espacement confortable */
+    font-size: 14px;              /* Taille de police pour les éléments */
+    background-color:#eeeeee;
+    color: #4d4d4d;
+    border: 1px solid  #e4e4e4;
+    border-radius: 4px;          /* Coins arrondis pour les éléments */
+    font-weight: normal;
+    font-family: 'Inter', normal;
+}
+
+.search-container select {
+    width: 200px;                 /* Largeur des menus déroulants */
+}
+
+.tri-container {
+    display: flex;                /* Flexbox pour aligner les éléments de tri */
+    gap: 15px;                    /* Espacement entre les éléments */
+    align-items: center; 
+}
+
+.tri-container label {
+    font-size: 14px;              /* Taille de police pour les labels */
+    color: #4d4d4d;                  /* Couleur des labels */
+    align-items: center;          /* Aligne les éléments au centre sur la ligne */
+    font-weight: normal;
+    font-family: 'Inter', normal;
+}
+
+.tri-container select {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 150px;                 /* Largeur des menus déroulants dans le tri */
+}
 
 

@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Détail de l'Annonce - TiSkol</title>
+    <link rel="stylesheet" href="../styles_prendre.css">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <img src="../logo_black.png" alt="Logo TiSkol" class="sidebar-logo">
+            <h1 class="sidebar-title">TiSkol</h1>
+        </div>
+        <div class="sidebar-button" onclick="window.location.href='../accueil.html'">
+            <img src="../logo_accueil_vide.png" alt="Icone 1" class="button-icon">
+            <span class="button-text">Accueil</span>
+        </div>
+        <div class="sidebar-button active">
+            <img src="../logo_livre_plein.png" alt="Icone 2" class="button-icon">
+            <span class="button-text-select">Prendre des cours</span>
+        </div>
+        <div class="sidebar-button" onclick="window.location.href='../donner.html'">
+            <img src="../logo_suitcase_vide.png" alt="Icone 3" class="button-icon">
+            <span class="button-text">Donner des cours</span>
+        </div>
+        <div class="sidebar-button" onclick="window.location.href='../contact.html'">
+            <img src="../logo_contact_vide.png" alt="Icone 4" class="button-icon">
+            <span class="button-text">Contact</span>
+        </div>
+    </div>
+
+    <div class="page-content">
+        <h1 class="page-title">Détails de l'annonce</h1>
+        <br>
+        <!-- Conteneur pour la photo et les détails de l'enseignant -->
+        <div class="enseignant-container">
+            <div class="enseignant-photo">
+                <img src="../pictures/Valentine_LETTERON.jpg" alt="Valentine LETTERON">
+            </div>
+
+            <div class="enseignant-detail">
+                <h2>Valentine LETTERON</h2>
+                    <p class="enseignant-age">Âge : 21 ans</p>
+                    <p class="enseignant-matiere">Matière : informatique</p>
+                    <p class="enseignant-tarif">Tarif : 25 €/heure</p>
+                    <p class="enseignant-date">Publier le :  17/03/2025 à 12:00</p>
+            </div>
+            <div class="enseignant-icone">
+                <img src="../icone_informatique.png" alt="Diane QUEAU">
+            </div>
+        </div>
+
+        <!-- Description en dessous -->
+        <div class="enseignant-description">
+            <p>Je suis passionnée par l'informatique et l'enseignement. Je me spécialise dans le développement logiciel, la gestion de bases de données et les systèmes informatiques. Mon objectif est de rendre les concepts complexes accessibles et de vous aider à maîtriser les outils qui façonnent le monde numérique actuel.</p>
+        </div>
+
+        <button type="button" onclick="toggleForm()">Contacter l'enseignant</button>
+
+        <form action="https://formspree.io/f/mvgkgbay" method="POST" class="course-form">
+            <!-- Champ caché pour le nom de l'enseignant -->
+            <input type="hidden" id="nom_enseignant" name="nom_enseignant" value="Valentine LETTERON">
+            
+            <label for="nom_candidat">Votre Nom</label><br>
+            <input type="text" id="nom_candidat" name="nom_candidat" placeholder="Nom Prénom" required><br>
+
+            <label for="phone">Votre numéro de téléphone</label><br>
+            <input type="tel" id="phone" name="phone" placeholder="XX XX XX XX XX" required maxlength="14"><br>
+
+            <script>
+                document.getElementById("phone").addEventListener("input", function (e) {
+                    let value = e.target.value.replace(/\D/g, ""); // Supprime tout sauf les chiffres
+                    let formattedValue = value.match(/.(1, 2)/g)?.join(" ") || ""; // Regroupe par 2
+                    e.target.value = formattedValue;
+                });
+            </script>
+
+            <label for="email">Votre Email</label><br>
+            <input type="email" id="email" name="email" placeholder="@" required><br>
+
+            <button type="submit">Envoyer</button>
+        </form>
+    </div>
+
+    <script>
+        function toggleForm() {
+            const form = document.querySelector('.course-form');
+            const button = document.querySelector('button');
+            form.style.display = 'block';
+            button.style.display = 'none';
+        }
+        
+    </script>
+</body>
+</html>
